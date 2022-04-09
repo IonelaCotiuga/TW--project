@@ -1,0 +1,33 @@
+/* reset properties */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-size: 25px;
+  text-align: left;
+  padding: 15px;
+  color: white;
+  border-style: none;
+  border-radius: 3px;
+  width: 50%;
+  margin: 2px;
+  cursor: pointer;
+}
+
+#ibutton {
+  background: rgb(245,133,41);
+  background: linear-gradient(90deg, rgba(245,133,41,1) 0%, rgba(221,42,123,1) 48%, rgba(81,91,212,1) 100%);
+}
+
+#tbutton {
+  background-color: #1DA1F2;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: auto;
+}
