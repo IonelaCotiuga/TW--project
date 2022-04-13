@@ -1,0 +1,264 @@
+html,body{
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    /* background-image: url("backgroundImage.jpg"); */
+}
+
+.top {
+    background-color: #1a91bc;
+    border-color: #16a085;
+    padding-bottom: 40px;
+    padding-top: 60px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 27px;
+    line-height: 22px;    
+}
+
+.cont{
+    width: auto;
+    margin: auto;
+    overflow: hidden;
+}
+
+.cont{
+    max-width: 1100px;
+}
+
+.top .logo, .top .logo:hover{
+    color: rgb(255, 255, 255);
+    display: block;
+    font-weight: bold;
+    float: left;
+}
+
+.top .menu{
+    font-size: 20px;
+    line-height: 14px;
+    padding-top: 6px;
+    vertical-align: bottom;
+    float: left;
+}
+
+.top .menu a{
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    transition: .3s color;
+}
+
+.top .menu a:hover, .top .menu a.active{
+    color: #222;
+}
+
+a:hover, a:focus, a:active{
+    color: #7b7b7b;
+    text-decoration: none;
+}
+
+.top .login {
+    font-size: 20px;
+    line-height: 14px;
+    padding-top: 6px;
+    vertical-align:bottom;
+    float: right;
+}
+
+.top .login a {
+    padding: 10px 15px; 
+    text-decoration: none;
+    color: #fff;
+    transition: .3s color;
+}
+
+.signUp{
+    font-size: 18px;
+    border: 1px solid rgb(218, 91, 91); 
+    border-width:2px;
+    border-radius: 5px; 
+}
+
+.signUp:hover{
+    background: rgb(218, 91, 91);
+}
+
+.fa {
+    padding: 10px 15px;
+    font-size: 20px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 5px;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+
+  .photo{
+    max-width: 80%;
+    height: auto;
+    height: 550px;
+    margin-right: 150px;
+
+    margin-left: 5%;
+    margin-left: 100px;
+    padding-left: 5%;
+    float: right;
+    
+  }
+
+  .descriptionText{
+    padding-top: 6px;
+    padding-bottom: 15px;
+
+    display: block;
+    max-width: 100%;
+    width: 40%;
+    
+    border: 1px solid black;
+    background-color: rgb(88, 154, 176);
+    border-radius: 10px;
+
+    margin-top: 150px;
+    margin-bottom: 100px;
+    margin-left: 150px;
+    float:inline-start;
+  }
+
+  .descriptionText h1{
+    text-align: center;
+    line-height: 40px;
+    font-size: 40px;
+  }
+
+  .descriptionText p{
+    text-align: center;
+    
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .descriptionText a{
+    text-align: center;
+    padding: 10px 15px; 
+    text-decoration: none;
+    color: #fff;
+    transition: .3s color;
+    margin-left: 250px;
+    
+  }
+
+
+@media only screen and (max-width: 600px){
+    .logo{
+        margin: auto;
+        float: none!important;
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+
+    .menu{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu a{
+        float: none;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .login{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .login a{
+        float: none;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .photo{
+        width: 60%;
+        height: auto;
+        margin-right: 40px;
+        float: left;
+    }
+
+    .descriptionText{
+        width: auto;
+        margin: auto;
+        height: auto;
+        padding: 5%;
+        float: none;
+        border: 1px solid black; 
+        border-radius: 0%;
+    }
+
+    .descriptionText .signUp{
+        margin-left: 150px;
+    }
+
+}
+
+@media screen and (max-width: 1200px) and (min-width: 601px)
+{
+    .descriptionText{
+        max-width: 100%;
+        margin-top: 10%;
+        margin: right 10px;
+        margin-left: 50px;
+        display: block;
+        text-align: center;
+        float: none;
+    }
+
+    .descriptionText h1, .descriptionText p{
+        float: none;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        float: none;
+    }
+
+    .descriptionText a{
+        margin: 0%;
+    }
+
+
+    .photo{
+        max-width:50%;
+        height: auto;
+        margin-right: 10px;
+        width:50%;
+
+    }
+
+}
+
+
+  
+
+  
