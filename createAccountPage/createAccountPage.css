@@ -1,0 +1,308 @@
+html,body{
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+
+.top {
+    background-color: #1a91bc;
+    border-color: #16a085;
+    padding-bottom: 40px;
+    padding-top: 60px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 27px;
+    line-height: 22px;    
+}
+
+.cont{
+    width: auto;
+    margin: auto;
+    overflow: hidden;
+}
+
+.cont{
+    max-width: 1100px;
+}
+
+
+.top .logo, .top .logo:hover{
+    color: rgb(255, 255, 255);
+    display: block;
+    font-weight: bold;
+    float: left;
+}
+
+.top .menu{
+    font-size: 20px;
+    line-height: 14px;
+    padding-top: 6px;
+    vertical-align: bottom;
+    float: left;
+}
+
+.top .menu a{
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    transition: .3s color;
+}
+
+.top .menu a:hover, .top .login a.active, .top .login a:hover{
+    color: #222;
+}
+
+a:hover, a:focus, a:active, a:visited, a:link{
+    color: #7b7b7b;
+    text-decoration: none;
+}
+
+
+.top .login {
+    font-size: 20px;
+    line-height: 14px;
+    padding-top: 6px;
+    vertical-align:bottom;
+    float: right;
+}
+
+.top .login a {
+    padding: 10px 15px; 
+    text-decoration: none;
+    color: #fff;
+    transition: .3s color;
+}
+
+.CreateAccountWord{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.containerLogin{
+    background-image: url("blur.jpg");
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-radius: 10px;
+    border-width: 4px;
+    margin: auto;
+    max-width: 100%;
+    width: 30%;
+}
+
+.containerLogin label{ /* date de introdus*/
+    text-align: left;
+    font-weight: bolder;
+    font-size: 20px;
+    padding-left: 50px;
+    z-index: 2;
+    line-height: 5px;
+
+    margin-top:25px;
+    display:inline-block;
+}
+
+.input{  /*chenar in care se introduce text*/
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    width: 80%;
+    padding: 10px;
+    margin: 10px 5% 5px 8%;
+}
+
+.alreadyAnAccount{
+    text-align: left;
+    font-weight: bolder;
+    font-size: 18px;
+    padding: 0% 5% 0% 15%;
+    z-index: 2;
+    line-height: 5px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.alreadyAnAccount .SignInWord {
+    font-size: 20px;
+    text-align: center;
+    color: rgb(44, 162, 83);
+}
+
+.alreadyAnAccount .SignInWord:hover{
+    color: rgb(146, 231, 127);
+}
+
+
+.CreateAccountButton{ 
+
+    background-color: rgb(218, 91, 91);
+    border-width: 4px;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 20px;
+    width: 85%;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+
+.CreateAccountButton a{
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    padding: auto;
+    margin: auto;
+}
+
+.CreateAccountButton:hover{
+    background-color: rgb(233, 114, 114) ;
+}
+
+
+@media only screen and (max-width: 600px){
+
+    .logo{
+        margin: auto;
+        float: none!important;
+        text-align: center;
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+
+    .menu{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu a{
+        float: none;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .login{
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .login a{
+        float: none;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .login .signUp:hover{
+        padding-top: 0%;
+    }
+
+    .containerLogin{
+        width: 60%;
+    }
+
+    .alreadyAnAccount{
+        padding-left: 10%;
+        line-height: 25px;
+        padding-top: 15px;
+        padding-bottom: 20px;
+    }  
+
+    .containerLogin label{
+        padding-left: 10px;
+    }
+
+    .input{
+        background-color: rgb(255, 255, 255);
+        border-radius: 5px;
+        width: 80%;
+        padding: 10px;
+        margin: 10px 5% 5px 5%;
+    }
+
+}
+
+@media screen and (max-width: 1300px) and (min-width: 900px){
+    .containerLogin{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 970px) and (min-width: 601px){
+    .logo{
+        margin: auto;
+        float: none!important;
+        text-align: center;
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+
+    .menu{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu a{
+        float: none;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .login{
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .login a{
+        float: none;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .login .signUp:hover{
+        padding-top: 0%;
+    }
+
+
+   .containerLogin{
+       width: 50%;
+   }
+
+   .alreadyAnAccount{
+        font-weight: bolder;
+        font-size: 18px;
+        padding: 0% 5% 0% 15%;
+        line-height: 25px;
+        padding-top: 15px;
+        padding-bottom: 20px;
+        margin: auto;
+    }  
+
+    .alreadyAnAccount .SignInWord {
+        font-size: 22px;
+        padding: 25%;
+        color: rgb(44, 162, 83);
+    }   
+
+    .input{
+        margin: 10px 10% 5px 8%;
+    }
+
+}
+
