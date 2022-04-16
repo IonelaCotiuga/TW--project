@@ -16,7 +16,7 @@ body{
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-} 
+}
 
 .down{
     top: 20%;
@@ -28,7 +28,7 @@ body{
     left: 0;
     background-color:darkslategray;
 }
-  
+
 .right {
     right: 0;
     background-color:lightslategrey;
@@ -38,12 +38,12 @@ body{
     height: 20%;
     bottom: 80%;
 }
-  
+
 #profile-picture{
     width: 8.9%;
-    height: 15.046296296296296296296296296296%;
+    height: auto;
     padding-left: 8%;
-    padding-top: 4.5%;  
+    padding-top: 4.5%;
 }
 
  /* .border_round{
@@ -61,7 +61,7 @@ p.info{
 }
 
 .button1, .button2{
-    background-color: #3d49d4; 
+    background-color: #3d49d4;
     border: none;
     color: white;
     padding: 1.2% 2.0833333333333333333333333333333%;
@@ -114,7 +114,7 @@ p.info{
 }
 
 .meniu{
-    background-color: darkslategray; 
+    background-color: darkslategray;
     border: none;
     color: lightslategrey;
     padding: 1.2% 2.0833333333333333333333333333333%;
@@ -129,7 +129,7 @@ p.info{
 
 .content{
     height: 30%;
-    width: 26%;
+    width: auto;
     padding-left: 5%;
     padding-top: 2.5%;
 }

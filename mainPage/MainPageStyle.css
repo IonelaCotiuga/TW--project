@@ -205,7 +205,7 @@ a:hover, a:focus, a:active, a:visited, a:link{
     .descriptionText{
         max-width: 100%;
         margin-top: 10%;
-        margin: right 10px;
+        margin-right: 10px;
         margin-left: 50px;
         display: block;
         text-align: center;
@@ -240,7 +240,7 @@ a:hover, a:focus, a:active, a:visited, a:link{
     .descriptionText{
         max-width: 100%;
         margin-top: 10%;
-        margin: right 10px;
+        margin-right: 10px;
         margin-left: 50px;
         display: block;
         text-align: center;
@@ -270,8 +270,3 @@ a:hover, a:focus, a:active, a:visited, a:link{
     }
 
 }
-
-
-  
-
-  
