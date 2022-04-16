@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Test</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    <!-- header -->
+    <div class="top">
+        <div class="cont">
+            <a href="#" class="logo">M-pic</a>
+            <div class="menu">
+                <a href="#">Profile</a>
+                <a href="#">About</a>
+                <a href="#">Contact us</a>
+            </div>
+
+            <div class="logout">
+                <a href="#">Log out</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+      <!-- the image -->
+      <div class="result">
+        <figure class="image-container">
+          <img id="chosen-image" src="image.png" alt="The chosen image.">
+        </figure>
+      </div>
+
+      <div class="editor">
+        <!-- blur -->
+        <div class="filter">
+          <label for="blur">Blur</label>
+          <input id="blur" type="range" min="0" max="5" value="0" step="0.1"/>
+        </div>
+
+        <!-- brightness -->
+        <div class="filter">
+          <label for="brightness">Brightness</label>
+          <input id="brightness" type="range" min="0" max="200" value="100"/>
+        </div>
+
+        <!-- contrast -->
+        <div class="filter">
+          <label for="contrast">Contrast</label>
+          <input id="contrast" type="range" min="0" max="200" value="100"/>
+        </div>
+
+        <!-- grayscale -->
+        <div class="filter">
+          <label for="grayscale">Grayscale</label>
+          <input id="grayscale" type="range" min="0" max="100" value="0"/>
+        </div>
+
+        <!-- hue-rotate -->
+        <div class="filter">
+          <label for="hue-rotate">Hue-Rotate</label>
+          <input id="hue-rotate" type="range" min="0" max="180" value="0"/>
+        </div>
+
+        <!-- saturation -->
+        <div class="filter">
+          <label for="saturation">Saturation</label>
+          <input id="saturation" type="range" min="0" max="200" value="100"/>
+        </div>
+
+        <!-- sepia -->
+        <div class="filter">
+          <label for="sepia">Sepia</label>
+          <input id="sepia" type="range" min="0" max="100" value="0"/>
+        </div>
+
+        <!-- flip options -->
+        <div class="flip-buttons">
+          <div class="flip-option">
+            <input id="flip-horizontal" type="checkbox"/>
+            <label for="flip-horizontal">Flip Horizontally</label>
+          </div>
+
+          <div class="flip-option">
+            <input id="flip-vertical" type="checkbox"/>
+            <label for="flip-vertical">Flip Vertically</label>
+          </div>
+        </div>
+
+        <button id="reset-button" onclick="resetFilters()">Reset Filters</button>
+      </div>
+    </div>
+
+    <canvas id="canvas" style="display: none;"></canvas>
+    <button class="save-button" onclick="saveImage()"><i class="fa-solid fa-desktop fa-fw"></i> Save Image</button>
+    <button id="fb" class="save-button"><i class="fa-brands fa-facebook-f fa-fw"></i> Post to Facebook</button>
+    <button id="twt" class="save-button"><i class="fa-brands fa-twitter fa-fw"></i> Post to Twitter</button>
+
+    <!-- script -->
+    <script src="script.js"></script>
+    <!-- fontawesome icons -->
+    <script src="https://kit.fontawesome.com/a4f543b8bc.js" crossorigin="anonymous"></script>
+  </body>
+
+</html>
