@@ -126,7 +126,7 @@ a:hover, a:focus, a:active, a:visited, a:link{
 }
 
 
-.LoginButton{ /*chenar login*/
+.LoginButton{ 
 
     background-color: #16a085;
     border-width: 4px;
