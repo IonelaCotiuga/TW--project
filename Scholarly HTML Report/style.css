@@ -62,12 +62,9 @@ ul {
   margin-bottom: 20px;
 }
 
-code {
-  font-family: Consolas, "courier new";
-}
-
 pre {
   border: 1px solid black;
+  font-family: Consolas, "courier new";
 }
 
 #img1, #img2 {
