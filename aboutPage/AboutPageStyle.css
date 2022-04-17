@@ -11,7 +11,7 @@ html,body{
     color: white;
     text-transform: uppercase;
     font-size: 27px;
-    line-height: 22px;    
+    line-height: 22px;
 }
 
 .cont{
@@ -64,7 +64,7 @@ a:hover, a:focus, a:active, a:visited, a:link{
 }
 
 .top .login a {
-    padding: 10px 15px; 
+    padding: 10px 15px;
     text-decoration: none;
     color: #fff;
     transition: .3s color;
@@ -93,7 +93,7 @@ a:hover, a:focus, a:active, a:visited, a:link{
     margin-top: 150px;
     margin-bottom: 100px;
     margin-left: 150px;
- 
+
 }
 
 .descriptionText h1{
@@ -104,7 +104,7 @@ a:hover, a:focus, a:active, a:visited, a:link{
 }
 
 .descriptionText p{
-    text-align: left;   
+    text-align: left;
     font-size: 20px;
     padding-left: 20px;
     padding-right: 10px;
@@ -113,7 +113,7 @@ a:hover, a:focus, a:active, a:visited, a:link{
 
 .descriptionText a{
     text-align: center;
-    padding: 10px 15px; 
+    padding: 10px 15px;
     text-decoration: none;
     color: #fff;
     transition: .3s color;
@@ -160,7 +160,7 @@ a:hover, a:focus, a:active, a:visited, a:link{
         width: 100%;
         text-align: center;
     }
-    
+
     .menu a{
         float: none;
         padding-top: 15px;
@@ -234,7 +234,7 @@ a:hover, a:focus, a:active, a:visited, a:link{
 }
 
 @media screen and (max-width: 900px) and (min-width: 601px){
-   
+
     .descriptionText{
         max-width: 100%;
         margin-top: 10%;
@@ -257,4 +257,8 @@ a:hover, a:focus, a:active, a:visited, a:link{
     .descriptionText a{
         margin: 0%;
     }
+}
+
+.descriptionText h1 {
+  text-align: center;
 }
