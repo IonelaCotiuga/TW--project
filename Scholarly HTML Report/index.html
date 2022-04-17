@@ -119,52 +119,52 @@
         <section>
           <h3 id="user-interfaces">3.1 Interfața cu utilizatorul</h3>
           <section>
-            <h4 id="feature1-description">3.1.1 Pagina Principala</h4>
-            <p>Prima pagina cu care va interactiona un utilizator atunci cand va deschide aplicatia va fi pagina Principala (title : M-PIC). Aceasta prezinta in partea de sus un antet orizontal, static ce contine logo-ul si meniul principal al site-ului.</p>
-            <p>Meniul este gandit sa ofere o experienta de navigare cat mai placuta unui utilizator de site: ii pune la dispozitie cele mai relevante pagini (Home, About, Contact Us, Log in, Sign Up).</p>
-            <p>Fiecare buton din meniul antetului va directiona utilizatorul catre o pagina diferita, specifica butonului ales. Butoanele au initial culoarea alb; in cazul de hover cu mouse-ul, acestea isi schimba culoarea in negru. De asemenea, pagina pe care se afla utilizatorul va fi marcata permanent cu culoarea neagra, celelalte ramanand albe.</p>
-            <p>By default, aplicatia se va deschide in sectiunea HOME. Continutul paginii (avand rezolutia > 600px) va contine in partea dreapta o imagine in format svg, responsive iar in partea stanga o mica descriere a functionalitatilor aplicatiei si un buton de sign up care va directiona utilizatorul catre sectiunea de creare cont .</p>
-            <img id="img1" src="mainPage1-desktop.png" alt="Desktop view">
+            <h4 id="main-page">3.1.1 Pagina principală</h4>
+            <p>Prima pagină cu care va interacționa un utilizator atunci când va deschide aplicația va fi pagina principală. Aceasta prezintă în partea de sus un antet orizontal, static ce conține logo-ul și meniul principal al sitului.</p>
+            <p>Meniul este gândit să ofere o experiență de navigare cât mai plăcută unui utilizator: îi pune la dispoziție cele mai relevante pagini (Home, About, Contact Us, Log In, Sign Up).</p>
+            <p>Fiecare buton din meniul antetului va redirecționa utilizatorul către o pagină diferită, specifică butonului ales. Butoanele au inițial culoarea alb; în cazul de hover cu mouse-ul, acestea își schimbă culoarea în negru. De asemenea, pagina pe care se află utilizatorul va fi marcată permanent cu culoarea negru, celelalte rămânând albe.</p>
+            <p>În mod implicit, aplicația se va deschide în secțiunea Home. Conținutul paginii (având rezoluția &gt; 600px) va conține în partea dreaptă o imagine în format <code>svg</code> responsivă, iar în partea stângă o mică descriere a functionalităților aplicației și un buton de înregistrare care va redirecționa utilizatorul către secțiunea de creare cont.</p>
+            <img class="img1" src="mainPage1-desktop.png" alt="Desktop view">
             <i class="caption">Vizualizare desktop</i>
-            <p>La o rezolutie a paginii &lt 600px (sau modul mobile), atat antetul cat si continutul paginii vor suferi modificari. Logo-ul si meniul vor fi dispuse in format block, imediat dupa antet va fi afisata imaginea site-ului iar in josul acesteia descrierea aplicatiei si butonul de sign up.</p>
-            <img id="img2" src="mainPage1-mobile.png" alt="iPhone 12 Pro view">
+            <p>La o rezoluție a paginii &lt; 600px (sau modul mobile), atât antetul cât și conținutul paginii vor suferi modificări. Logo-ul și meniul vor fi dispuse în format block, imediat după antet va fi afișată imaginea site-ului, iar în josul acesteia, descrierea aplicației și butonul de Sign Up.</p>
+            <img class="img2" src="mainPage1-mobile.png" alt="iPhone 12 Pro view">
             <i class="caption">Vizualizare iPhone 12 Pro</i>
           </section>
           <section>
-            <h4 id="feature1-description">3.1.2 Pagina Login</h4>
-            <p>Pagina de login are de asemenea un antet orizontal cu logo-ul si meniul aplicatiei.</p>
-            <p>Continutul paginii va cuprinde un chenar cu background-color: blue avand la randul sau doua campuri de completat de catre utilizator (username, password), un buton de Login -- care va functiona daca datele introduse sunt corecte (exista cont cu username-ul si parola date de user) si care va directiona utilizatorul catre pagina cu profilul user-ului -- si un link "or create account" catre pagina de creare cont.</p>
-            <img id="img1" src="loginPage-desktop.png" alt="Desktop view">
+            <h4 id="login-page">3.1.2 Pagina Login</h4>
+            <p>Pagina de autentificare are de asemenea un antet orizontal cu logo-ul și meniul aplicației.</p>
+            <p>Conținutul paginii va cuprinde un chenar cu fundal albastru, având la rândul sau două câmpuri de completat de către utilizator (Username, Password), un buton de Login -- care va funcționa dacă datele introduse sunt corecte (există cont cu numele și parola date de utilizator) și care va redirecționa utilizatorul către pagina cu profilul său -- și un link “or create account” către pagina de creare cont.</p>
+            <img class="img1" src="loginPage-desktop.png" alt="Desktop view">
             <i class="caption">Vizualizare desktop</i>
-            <p>Chenarul ce cuprinde functionalitatile paginii de Login va fi responsive si se va redimensiona in functie de rezolutia ecranului.</p>
-            <img id="img2" src="loginPage-mobile.png" alt="iPhone 12 Pro view">
+            <p>Chenarul ce cuprinde functionalitățile paginii de Login va fi responsiv și se va redimensiona în functie de rezoluția ecranului.</p>
+            <img class="img2" src="loginPage-mobile.png" alt="iPhone 12 Pro view">
             <i class="caption">Vizualizare iPhone 12 Pro</i>
           </section>
           <section>
-            <h4 id="feature1-description">3.1.3 Pagina Create account</h4>
-            <p>Pagina create account are de asemenea un antet orizontal cu logo-ul si meniul aplicatiei.</p>
-            <p>Continutul paginii va cuprinde un chenar cu background-color: blue avand la randul sau patru campuri de completat de catre utilizator (username,email, password, confirm password), un buton de Create account -- care va functiona daca datele introduse sunt corecte (nu exista alt cont cu username-ul sau email-ul date de user) si care va directiona utilizatorul catre pagina de login -- si un link "Sign in" catre pagina de login in cazul in care utilizatorul are deja un cont si doreste sa se autentifice.</p>
-            <img id="img1" src="createAccountPage-desktop.png" alt="Desktop view">
+            <h4 id="signup-page">3.1.3 Pagina Create account</h4>
+            <p>Pagina de înregistrare are de asemenea un antet orizontal cu logo-ul și meniul aplicației.</p>
+            <p>Conținutul paginii va cuprinde un chenar cu fundal albastru, având la rândul sau patru câmpuri de completat de către utilizator (Username, E-mail, Password, Confirm password), un buton “Create account” -- care va funcționa dacă datele introduse sunt corecte (nu există alt cont cu username-ul sau e-mail-ul date de user) -- și un link “Sign in” către pagina de login în cazul în care utilizatorul are deja un cont și dorește să se autentifice.</p>
+            <img class="img1" src="createAccountPage-desktop.png" alt="Desktop view">
             <i class="caption">Vizualizare desktop</i>
-            <p>Chenarul ce cuprinde functionalitatile paginii de Create account va fi responsive si se va redimensiona in functie de rezolutia ecranului.</p>
-            <img id="img2" src="createAccountPage-mobile.png" alt="iPhone 12 Pro view">
+            <p>Chenarul ce cuprinde functionalitățile paginii de Create account va fi responsiv și se va redimensiona în functie de rezoluția ecranului.</p>
+            <img class="img2" src="createAccountPage-mobile.png" alt="iPhone 12 Pro view">
             <i class="caption">Vizualizare iPhone 12 Pro</i>
           </section>
-          <h4> 3.1.4  Pagina About</h4>
+          <h4 id="about-page"> 3.1.4 Pagina About</h4>
           <p>Pagina About conține o mică descriere a aplicației și oferă utilizatorului câteva explicații în legătură cu componentele principale pe care le poate folosi, precum felul în care poate edita pozele, locul în care poate găsi informațiile sale și modul în care își poate vizualiza imaginile.</p>
-          <h4> 3.1.5 Pagina Contact</h4>
+          <h4 id="contact-page"> 3.1.5 Pagina Contact</h4>
           <p>Această pagină conține detalii de contact ale moderatorilor aplicației, în cazul în care utilizatorul întâmpină dificultăți sau are anumite neclarități. Design-ul este unul simplu și util.</p>
-          <img id="img1" src="contact.png" alt="Contact">
+          <img class="img1" src="contact.png" alt="Contact">
           <i class="caption">Contact Page</i>
-          <h4> 3.1.6 Pagina Profile</h4>
-          <p> Reprezintă o "bibliotecă" a imaginilor încărcate de utilizator pe platformele Facebook și/sau Twitter. Acestea pot fi afișate amestecate, fie separat în funcție de platforma de pe care au fost importate.</p>
-          <img id="img1" src="afisarePoze.png" alt="afisarePoze">
+          <h4 id="profile-page"> 3.1.6 Pagina Profile</h4>
+          <p> Reprezintă o “bibliotecă” a imaginilor încărcate de utilizator pe platformele Facebook și/sau Twitter. Acestea pot fi afișate amestecate, fie separat în funcție de platforma de pe care au fost importate.</p>
+          <img class="img1" src="afisarePoze.png" alt="afisarePoze">
           <br>
           <p>Cea mai mare parte a paginii este rezervată afișării propriu-zise a imaginilor.</p>
-          <img id="img1" src="content.png" alt="content">
+          <img class="img1" src="content.png" alt="content">
           <br>
-          <p>Partea stângă a paginii este destinată informațiilor referitoare la proprietarul paginii, cum ar fi poza de profil, numele și email-ul. De asemenea, tot aici există butonul ce permite încărcarea unei noi imagini, search-box-ul pentru căutarea unor fotografii în funcție de anumite criterii precum și butonul de Logout. În plus, prin apăsarea logo-ului "M-PIC" utilizatorul este redirectat către pagina "Home".</p>
-          <img id="img2" src="info.png" alt="info">
+          <p>Partea stângă a paginii este destinată informațiilor referitoare la proprietarul paginii, cum ar fi poza de profil, numele și e-mail-ul. De asemenea, tot aici există butonul ce permite încărcarea unei noi imagini, search-box-ul pentru căutarea unor fotografii în funcție de anumite criterii precum și butonul de Logout. În plus, prin apăsarea logo-ului “M-PIC” utilizatorul este redirectat către pagina “Home”.</p>
+          <img class="img2" src="info.png" alt="info">
           <br>
 
         </section>
@@ -172,9 +172,9 @@
           <h3 id="hardware-interfaces">3.2 Interfețe hardware</h3>
           <p>Aplicația M-Pic respectă principiile design-ului web responsiv, astfel este compatibilă cu dispozitive de orice dimensiune. Ca exemplu, diferența dintre pagina pentru editat fotografii pe desktop (prima imagine), respectiv iPhone 12 Pro (a doua imagine):
 
-          <img id="img1" src="desktop_view.png" alt="Desktop view">
+          <img class="img1" src="desktop_view.png" alt="Desktop view">
           <i class="caption">Vizualizare desktop</i>
-          <img id="img2" src="iphone_view.png" alt="iPhone 12 Pro view">
+          <img class="img2" src="iphone_view.png" alt="iPhone 12 Pro view">
           <i class="caption">Vizualizare iPhone 12 Pro</i>
           </p>
         </section>

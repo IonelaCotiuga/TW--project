@@ -71,7 +71,7 @@ pre {
   font-family: Consolas, "courier new";
 }
 
-#img1, #img2 {
+.img1, .img2 {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -81,7 +81,7 @@ pre {
   border: 1px solid black;
 }
 
-#img2 {
+.img2 {
   max-width: 40%;
 }
 
