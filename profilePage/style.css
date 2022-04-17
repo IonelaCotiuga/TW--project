@@ -1,5 +1,10 @@
 body{
-    background-color:darkslategrey;
+    background-color:#1a91bc;
+}
+
+html,body{
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .split {
@@ -16,22 +21,22 @@ body{
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-}
+} 
 
 .down{
     top: 20%;
     height: 80%;
-    background-color:lightslategrey;
+    background-color:rgba(150, 202, 221, 0.989);
 }
 
 .left {
     left: 0;
-    background-color:darkslategray;
+    background-color:#1a91bc;
 }
-
+  
 .right {
     right: 0;
-    background-color:lightslategrey;
+    background-color:rgba(150, 202, 221, 0.989);
 }
 
 .toptable{
@@ -39,11 +44,19 @@ body{
     bottom: 80%;
 }
 
+.logo{
+    margin: auto;
+    float: none!important;
+    margin-top: 0;
+    padding-top: 0%;
+    color: white;
+}
+  
 #profile-picture{
     width: 8.9%;
-    height: auto;
+    height: 15.046296296296296296296296296296%;
     padding-left: 8%;
-    padding-top: 4.5%;
+    padding-top: 4.5%;  
 }
 
  /* .border_round{
@@ -55,13 +68,13 @@ body{
 
 p.info{
     padding-left: 7.5%;
-    color: lightslategrey;
+    color: white;
     font-family: "Times New Roman", Times, serif;
     font-size:1vw;
 }
 
 .button1, .button2{
-    background-color: #3d49d4;
+    background-color: rgb(88, 154, 176); 
     border: none;
     color: white;
     padding: 1.2% 2.0833333333333333333333333333333%;
@@ -103,7 +116,7 @@ p.info{
     font-size: 25px;
     text-decoration: underline;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: darkslategrey;
+    color: white;
     font-size:2vw;
 }
 
@@ -114,22 +127,122 @@ p.info{
 }
 
 .meniu{
-    background-color: darkslategray;
+    background-color: rgb(88, 154, 176); 
     border: none;
-    color: lightslategrey;
+    color: white;
     padding: 1.2% 2.0833333333333333333333333333333%;
     text-align: center;
     display: inline-block;
     font-size: 1vw;
-    margin: 2% 8%;
+    margin: 2% 12%;
     cursor: pointer;
     transition-duration: 0.4s;
-    margin-left: 7.7%;
+    margin-left: 12%;
 }
 
 .content{
     height: 30%;
-    width: auto;
+    width: 26%;
     padding-left: 5%;
     padding-top: 2.5%;
+}
+
+@media only screen and (max-width: 600px){
+    .split {
+        height: 100%;
+        width: 67%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    } 
+    
+    .down{
+        top: 30%;
+        height: 80%;
+        background-color:rgba(150, 202, 221, 0.989);
+    }
+    
+    .left {
+        left: 0;
+        background-color:#1a91bc;
+    }
+      
+    .right {
+        right: 0;
+        background-color:rgba(150, 202, 221, 0.989);
+    }
+
+    #profile-picture{
+        width: 30%;
+        height: 15%;
+        padding-left: 8%;
+        padding-top: 20%;  
+    }
+
+    p.info{
+        padding-left: 5%;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
+        font-size:3vw;
+
+    }
+
+    .button1, .button2{
+        background-color: rgb(88, 154, 176); 
+        border: none;
+        color: white;
+        padding: 5% 5%;
+        text-align: center;
+        display: inline-block;
+        font-size: 4vw;
+        margin: 8px 4px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        margin-left: 5.8%;
+    }
+
+    .button2{
+        background-color: rgb(88, 154, 176); 
+        border: none;
+        color: white;
+        padding: 5% 7%;
+        text-align: center;
+        display: inline-block;
+        font-size: 4vw;
+        margin: 8px 4px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        margin-left: 14%;
+    }
+
+    .search{
+        margin-left: 4.8%;
+        padding: 0.35% 2.0833333333333333333333333333333%;
+        max-width: 30%;
+    }
+
+    .princ{
+        padding-top: 2.5%;
+        font-size: 25px;
+        text-decoration: underline;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;
+        font-size:4.9vw;
+    }
+
+    .content{
+        height: 40%;
+        width: 70%;
+        padding-left: 13%;
+        padding-top: 4%;
+    }
+
 }
