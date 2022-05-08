@@ -1,0 +1,193 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: cursive;
+  }
+
+.topnav {
+  overflow: hidden;
+  background-color: #1a91bc;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #1a91bc;
+  color: black;
+}
+
+.topnav a:visited, a:link{
+    text-decoration: none;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.topnav .logo{
+  font-size: 28px;
+  font-family: cursive;
+  font-style: italic;
+  padding: 0%;
+  padding:14px 16px;
+}
+
+.topnav .logo:hover{
+  background-color: #1a91bc;
+  color: white;
+}
+
+
+.LoginWord{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.containerLogin{
+    background-image: url("blur.jpg");
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-radius: 10px;
+    border-width: 4px;
+    margin: auto;
+    max-width: 100%;
+    width: 30%;
+    margin-bottom: 50px;
+}
+
+.containerLogin p{
+    text-align: left;
+    font-weight: bolder;
+    font-size: 22px;
+    padding-left: 50px;
+    padding-top: 25px;
+    z-index: 2;
+    line-height: 10px;
+}
+
+.containerLogin a{
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-weight: bolder;
+    display: block;
+    font-size: 22px;
+    margin: 30px;
+    padding-bottom: 10px;
+}
+
+.containerLogin a:hover{
+    color: rgb(218, 91, 91);
+}
+
+
+.LoginButton{
+    background-color: #16a085;
+    border-width: 4px;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 20px;
+    width: 82%;
+    padding: 6px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+  font-family: cursive;
+  font-size: 22px;
+  text-align: center;
+  display: block;
+  padding: auto;
+  margin: auto;
+}
+
+.LoginButton:hover{
+    background-color: rgb(44, 162, 83);
+}
+
+.containerLogin label{
+    text-align: left;
+    font-weight: bolder;
+    font-size: 20px;
+    padding-left: 50px;
+    z-index: 2;
+    line-height: 20px;
+
+    margin-top:25px;
+    display:inline-block;
+}
+
+.input{  /*chenar in care se introduce text*/
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    width: 80%;
+    padding: 10px;
+    margin-left: 7%;
+    margin-top: 10px;
+}
+
+
+@media screen and (max-width: 660px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 660px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+    }
+
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+      padding: 15px;
+    }
+  }
+
+
+@media only screen and (max-width: 600px){
+    .containerLogin{
+        width: 60%;
+    }
+
+}
+
+@media screen and (max-width: 1200px) and (min-width: 901px){
+    .containerLogin{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 900px) and (min-width: 601px){
+   .containerLogin{
+       width: 50%;
+   }
+
+}
