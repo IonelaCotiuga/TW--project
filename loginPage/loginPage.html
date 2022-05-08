@@ -7,36 +7,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="loginPage.css" />
-
     </head>
 
 
     <body>
-        <div class = "top">
-            <div class="cont">
-                <a href="mainPage1.html" class="logo">M-pic</a>
-                <div class="menu">
-                    <a href="mainPage1.html" >Home</a>
-                    <a href="" >About</a>
-                    <a href="" >Contact us</a>   
-                </div>
-
-                <div class="login">
-                    <a href="loginPage.html" class="active">Log in</a>
-                    <a href="createAccountPage.html" class="signUp">Sign up</a>
-                </div>
-            </div>    
-        </div> 
+        <nav class="topnav" id="myTopnav">
+            <a class="logo">M-PIC</a>
+            <a href="mainPage1.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact us</a>
+            <a href="loginPage.html" class="active">Log in</a>
+            <a href="createAccountPage.html">Sign up</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </nav>
+        <script src="function.js"></script>
 
         <p class="LoginWord"> Login </p>
         <div class="containerLogin">
 
-            <label for="username" >Username:</label>
-            <input type="text" id="username" name="name" class="input">
+            <form>
+                <label for="username" >Username:</label>
+                <input type="text" id="username" name="name" class="input">
 
-            <label for="password" >Password:</label>
-            <input type="text" id="password" name="name" class="input">
-
+                <label for="password" >Password:</label>
+                <input type="text" id="password" name="name" class="input">
+            </form>
+        
             <div class="LoginButton">
                 <a href="">Login</a>
             </div>

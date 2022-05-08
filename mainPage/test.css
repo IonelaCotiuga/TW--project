@@ -1,0 +1,167 @@
+/* UTILITIES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+   body {
+    font-family: cursive;
+    background-color: rgb(120, 198, 198);
+   }
+   a {
+    text-decoration: none;
+   }
+   li {
+    list-style: none;
+   }
+
+   /* NAVBAR STYLING STARTS */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: teal;
+    color: #fff;
+   }
+   .nav-links a {
+    color: #fff;
+   }
+   /* LOGO */
+   .logo {
+    font-size: 32px;
+   }
+   /* NAVBAR MENU */
+   .menu {
+    display: flex;
+    gap: 1em;
+    font-size: 18px;
+   }
+   .menu li:hover {
+    background-color: #4c9e9e;
+    border-radius: 5px;
+    transition: 0.3s ease;
+   }
+   .menu li {
+    padding: 5px 14px;
+   }
+
+   /* body css */
+
+   .photo{
+    width: 35%;
+    height: auto;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-right: 100px;
+    float: right;
+  }
+
+  .descriptionText{
+    padding-top: 6px;
+    padding-bottom: 15px;
+
+    display: block;
+    max-width: 100%;
+    width: 40%;
+
+    background-color: rgb(88, 154, 176);
+    border-radius: 10px;
+
+    margin-top: 150px;
+    margin-bottom: 100px;
+    margin-left: 150px;
+ 
+  }
+
+  .descriptionText h1{
+    text-align: center;
+    line-height: 40px;
+    font-size: 40px;
+  }
+
+  .descriptionText p{
+    text-align: center;   
+    font-size: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .descriptionText a{
+    text-align: center;
+    padding: 10px 15px; 
+    text-decoration: none;
+    color: #fff;
+    transition: .3s color;
+    margin: 0% 30%;
+    font-size: 25px;
+  }
+
+  /*-------------------------------------------------------------------------*/
+  
+
+/*RESPONSIVE NAVBAR MENU STARTS*/
+/* CHECKBOX HACK */
+input[type=checkbox]{
+    display: none;
+   } 
+   /*HAMBURGER MENU*/
+   .hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+   }
+
+@media only screen and (max-width: 600px){
+    .photo{
+        width: 75%;
+        height: auto;
+        margin-top: 20px;
+        margin-right: 40px;
+        float: left;
+    }
+
+    .descriptionText{
+        width: auto;
+        margin: auto;
+        height: auto;
+        padding: 5%;
+        float: none;
+    }
+
+    .descriptionText .signUp{
+        border: 1px solid rgb(218, 91, 91);
+        border-width: 2px;
+    }
+
+}
+
+
+   /* APPLYING MEDIA QUERIES */
+@media (max-width: 768px) {
+   .menu { 
+    display:none;
+    position: absolute;
+    background-color:teal;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+   }
+   .menu li:hover {
+    display: inline-block;
+    background-color:#4c9e9e;
+    transition: 0.3s ease;
+   }
+   .menu li + li {
+    margin-top: 12px;
+   }
+   input[type=checkbox]:checked ~ .menu{
+    display: block;
+   }
+   .hamburger {
+    display: block;
+   }
+
+} 
+

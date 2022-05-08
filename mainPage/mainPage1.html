@@ -10,31 +10,31 @@
 
     </head>
 
-
     <body>
-        <div class = "top">
-            <div class="cont">
-                <a href="mainPage1.html" class="logo">M-pic</a>
-                <div class="menu">
-                    <a href="mainPage1.html" class="active">Home</a>
-                    <a href="" >About</a>
-                    <a href="" >Contact us</a>   
-                </div>
-
-                <div class="login">
-                    <a href="loginPage.html">Log in</a>
-                    <a href="createAccountPage.html" class="signUp">Sign up</a>
-                </div>
-            </div>    
-        </div>    
+        <nav class="topnav" id="myTopnav">
+            <a class="logo">M-PIC</a>
+            <a href="mainPage1.html" class="active">Home</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact us</a>
+            <a href="loginPage.html">Log in</a>
+            <a href="createAccountPage.html">Sign up</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </nav>
 
         <object class="photo" data="photo3.svg"> </object>
         <div class="descriptionText">
-            <h1>M-PIC - an online photo editing web application</h1>
-            <p>The application’s primary goal is to help users easily apply photo editing filters, 
-                 save them to the personal computer or be posted directly to a social media platform.</p>
-            <a href="createAccountPage.html" class="signUp" >Sign up</a>
+        <h1>M-PIC - an online photo editing web application</h1>
+        <p>The application’s primary goal is to help users easily apply photo editing filters, 
+            save them to the personal computer or be posted directly to a social media platform.</p>
+        <button onclick="location.href = 'createAccountPage.html';" id="myButton" class="signUp" >Sign up</button>
+
         </div>
+
+        <script src="function.js"></script>
+
+
     </body>
 
 </html>
