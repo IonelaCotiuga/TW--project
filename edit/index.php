@@ -1,8 +1,10 @@
 <?php
-  //if the user is not logged in, they will not have access to the profile page
-  session_start();
-  if(!isset($_SESSION["username"]))
-    header("location: ../index.php");
+  //if the user is not logged in, they will not have access to the edit page
+  if(!isset($_COOKIE["jwt"]))
+  {
+    header("location: ../login");
+    exit();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +30,6 @@
           <i class="fa fa-bars"></i>
       </a>
     </nav>
-    <script src="function.js"></script>
 
     <div class="wrapper">
       <!-- the image -->

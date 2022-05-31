@@ -8,13 +8,12 @@ class SignupModel extends DBHandler
     if(!$stmt->execute(array(strtolower($username), $email)))
     {
       $stmt = null;
-      header("location: ../signup?error=sql_statement_failed");
-      exit();
+      return 0;
     }
 
     if($stmt->rowCount() > 0)
-      return false;
-    return true;
+      return -1;
+    return 1;
   }
 
   protected function setUser($username, $email, $password)
@@ -26,11 +25,11 @@ class SignupModel extends DBHandler
     if(!$stmt->execute(array($username, $email, $encodedPassword)))
     {
       $stmt = null;
-      header("location: ../signup?error=sql_statement_failed");
-      exit();
+      return 0;
     }
 
     $stmt = null;
+    return 1;
   }
 }
 ?>

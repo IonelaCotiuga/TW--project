@@ -1,5 +1,5 @@
 <?php
-require_once('../models/loginModel.php');
+require_once("../models/loginModel.php");
 
 class LoginController extends LoginModel
 {
@@ -14,20 +14,17 @@ class LoginController extends LoginModel
 
   public function loginUser()
   {
-    if($this->emptyInput() == false)
-    {
-      header("location: ../login?error=empty_input");
-      exit();
-    }
+    if($this->emptyInput() == true)
+      return -1;
 
-    $this->getUser($this->username, $this->password);
+    return $this->getUser($this->username, $this->password);
   }
 
   private function emptyInput()
   {
     if(empty($this->username) || empty($this->password))
-      return false;
-    return true;
+      return true;
+    return false;
   }
 }
 ?>

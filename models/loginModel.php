@@ -1,60 +1,38 @@
 <?php
+require_once("../controllers/jwtController.php");
+
 class LoginModel extends DBHandler
 {
   protected function getUser($username, $password)
   {
-    $stmt = $this->connect()->prepare("SELECT password FROM users WHERE lower(username) = ? OR email = ?;");
+    $stmt = $this->connect()->prepare("SELECT * FROM users WHERE lower(username) = ? OR email = ?;");
 
     if(!$stmt->execute(array($username, $username)))
     {
       $stmt = null;
-      header("location: ../login?error=sql_statement_failed");
-      exit();
+      return 0;
     }
 
     if($stmt->rowCount() == 0)
     {
       $stmt = null;
-      header("location: ../login?error=wrong_user");
-      exit();
+      return -2;
     }
 
-    $encodedPassword = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $checkPassword = password_verify($password, $encodedPassword[0]["password"]);
+    $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $checkPassword = password_verify($password, $user[0]["password"]);
 
     if(!$checkPassword)
     {
       $stmt = null;
-      header("location: ../login?error=wrong_password");
-      exit();
-    }
-    else
-    {
-      $stmt = $this->connect()->prepare("SELECT * FROM users WHERE lower(username) = ? OR email = ? AND password = ?;");
-
-      if(!$stmt->execute(array($username, $username, $encodedPassword[0]["password"])))
-      {
-        $stmt = null;
-        header("location: ../login?error=sql_statement_failed");
-        exit();
-      }
-
-      if($stmt->rowCount() == 0)
-      {
-        $stmt = null;
-        header("location: ../login?error=wrong_user");
-        exit();
-      }
-
-      $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-      session_start();
-      $_SESSION["userid"] = $user[0]["id"];
-      $_SESSION["username"] = $user[0]["username"];
-      $_SESSION["email"] = $user[0]["email"];
+      return -3;
     }
 
-    $stmt = null;
+    //generate jwt
+    $jwt = new JWTController($user[0]["id"], $user[0]["username"], $user[0]["email"]);
+    $jwtToken = $jwt->generateToken();
+
+    return $jwtToken;
   }
 }
 ?>

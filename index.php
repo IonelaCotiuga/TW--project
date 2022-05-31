@@ -1,7 +1,3 @@
-<?php
-  session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +16,7 @@
             <a href="about">About</a>
             <a href="contact">Contact us</a>
             <?php
-            if(!isset($_SESSION["userid"])): ?>
+            if(!isset($_COOKIE["jwt"])): ?>
               <a href="login">Log in</a>
               <a href="signup">Sign up</a>
             <?php else: ?>

@@ -1,8 +1,10 @@
 <?php
   //if the user is already logged in, they will not have access to the register/login pages
-  session_start();
-  if(isset($_SESSION["username"]))
+  if(isset($_COOKIE["jwt"]))
+  {
     header("location: ../profile");
+    exit();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -52,9 +54,9 @@
               echo "<p style=\"color: blue; text-align: center;\">Successfully signed up.</p>";
           }
         ?>
-        
+
         <div class="containerLogin">
-            <form action="../includes/signup.inc.php" method="post">
+            <form action="../includes/signupAux.php" method="post">
                 <label for="username" >Username:</label>
                 <input type="text" id="username" name="username" class="input">
 

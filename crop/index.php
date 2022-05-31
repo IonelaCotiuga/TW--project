@@ -1,8 +1,10 @@
 <?php
-  //if the user is not logged in, they will not have access to the profile page
-  session_start();
-  // if(!isset($_SESSION["username"]))
-  //   header("location: ../index.php");
+  //if the user is not logged in, they will not have access to the crop page
+  if(!isset($_COOKIE["jwt"]))
+  {
+    header("location: ../login");
+    exit();
+  }
 ?>
 
 <!DOCTYPE html>

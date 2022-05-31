@@ -1,8 +1,14 @@
 <?php
   //if the user is not logged in, they will not have access to the profile page
-  session_start();
-  if(!isset($_SESSION["username"]))
-    header("location: ../index.php");
+  if(!isset($_COOKIE["jwt"]))
+  {
+    header("location: ../login");
+    exit();
+  }
+
+  //user data
+  include_once("../controllers/jwtController.php");
+  $jwt = JWTController::getPayload($_COOKIE["jwt"]);
 ?>
 
 <!DOCTYPE html>
@@ -22,13 +28,13 @@
 
                 <h1 class="logo">M-PIC</h1>
                 <?php
-                  $encodedEmail = md5($_SESSION["email"]);
-                  $defaulturl = urlencode('https://cutewallpaper.org/24/user-icon-png/user-icon-person-free-vector-graphic-on-pixabay.png');
+                  $encodedEmail = md5($jwt["email"]);
+                  $defaulturl = urlencode("https://cutewallpaper.org/24/user-icon-png/user-icon-person-free-vector-graphic-on-pixabay.png");
                   $imgurl = "https://www.gravatar.com/avatar/" . $encodedEmail . "?s=200&d=" . $defaulturl;
                 ?>
                 <img class="border_round" id="profile-picture" src="<?php echo $imgurl; ?>" alt="profile picture">
-                <p class="info"><?php echo $_SESSION["username"]; ?></p>
-                <p class="info"><?php echo $_SESSION["email"]?></p>
+                <p class="info"><?php echo $jwt["username"]; ?></p>
+                <p class="info"><?php echo $jwt["email"]; ?></p>
                 <button class="button button1">Add photo</button>
                 <br>
                 <br>

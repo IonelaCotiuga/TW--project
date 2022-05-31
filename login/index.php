@@ -1,8 +1,10 @@
 <?php
   //if the user is already logged in, they will not have access to the register/login pages
-  session_start();
-  if(isset($_SESSION["username"]))
+  if(isset($_COOKIE["jwt"]))
+  {
     header("location: ../profile");
+    exit();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -48,9 +50,9 @@
               header("location: ../profile");
           }
         ?>
-        
+
         <div class="containerLogin">
-            <form action="../includes/login.inc.php" method="post">
+            <form action="../includes/loginAux.php" method="post">
                 <label for="username" >Username or e-mail:</label>
                 <input type="text" id="username" name="username" class="input">
 
