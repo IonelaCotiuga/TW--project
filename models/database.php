@@ -3,7 +3,7 @@ class DBHandler
 {
   protected function connect()
   {
-    include('../util/config.php');
+    include("../util/config.php");
     try
     {
       $dbh = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname, $dbuser, $dbpass);

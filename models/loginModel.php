@@ -28,6 +28,8 @@ class LoginModel extends DBHandler
       return -3;
     }
 
+    $stmt = null;
+    
     //generate jwt
     $jwt = new JWTController($user[0]["id"], $user[0]["username"], $user[0]["email"]);
     $jwtToken = $jwt->generateToken();

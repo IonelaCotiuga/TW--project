@@ -7,7 +7,7 @@
   }
 
   //user data
-  include_once("../controllers/jwtController.php");
+  require_once("../controllers/jwtController.php");
   $jwt = JWTController::getPayload($_COOKIE["jwt"]);
 ?>
 

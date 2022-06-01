@@ -41,7 +41,7 @@
       <div class="editor">
         <button class="button" onclick="reset()">Reset Selection</button>
         <button class="button" onclick="crop()">Crop Selection</button>
-        <button class="button" onclick="save()">Save Image</button>
+        <button class="button" onclick="save()">Save Crop</button>
       </div>
     </div>
 

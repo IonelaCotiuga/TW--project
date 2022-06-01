@@ -110,13 +110,11 @@ function save()
   downloadLink.download = "MPic_Sticker.png";
   downloadLink.href = newCanvas.toDataURL("image/png");
 
-  //save to database
+  //save image on the server
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "../includes/saveCrop.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send("image=" + encodeURIComponent(downloadLink.href));
-
-  downloadLink.click();
 }
 
 //reset selection

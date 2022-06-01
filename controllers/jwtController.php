@@ -8,15 +8,17 @@ class JWTController
   public function __construct($id, $username, $email)
   {
     $this->header = json_encode(["alg" => "HS256", "typ" => "JWT"]);
-    $this->payload = json_encode(["sub" => "1234567890", "id" => $id, "username" => $username, "email" => $email, "iat" => time(), "exp" => time() + (60 * 60)]);
+    $this->payload = json_encode(["id" => $id, "username" => $username, "email" => $email, "iat" => time(), "exp" => time() + (60 * 60)]);
   }
 
   public function generateToken()
   {
+    include("../util/config.php");
+
     $base64Header = str_replace(["+", "/", "="], ["-", "_", ""], base64_encode($this->header));
     $base64Payload = str_replace(["+", "/", "="], ["-", "_", ""], base64_encode($this->payload));
 
-    $this->signature = hash_hmac("sha256", $base64Header . "." . $base64Payload, "KEY123", true);
+    $this->signature = hash_hmac("sha256", $base64Header . "." . $base64Payload, $secret_key, true);
     $base64Signature = str_replace(["+", "/", "="], ["-", "_", ""], base64_encode($this->signature));
 
     $jwt = $base64Header . "." . $base64Payload . "." . $base64Signature;

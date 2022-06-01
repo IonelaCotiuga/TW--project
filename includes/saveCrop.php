@@ -6,14 +6,11 @@ $image = $_POST["image"];
 
 if(!empty($image))
 {
-  include("../models/database.php");
-  include("../models/imageModel.php");
-  include("../controllers/imageController.php");
-
+  require_once("../controllers/imageController.php");
+  
   $contr = new ImageController($image);
   $contr->saveCrop();
 
-  echo $image;
   http_response_code(200);
 }
 else
