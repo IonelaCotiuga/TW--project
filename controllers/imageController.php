@@ -16,11 +16,27 @@ class ImageController
   {
     $saveLocation = "../temp/" . $this->jwt["id"];
     if(!file_exists($saveLocation))
+    {
       mkdir($saveLocation, 0777);
+
+      $indexFile = fopen($saveLocation . "/index.php", "w");
+      $content = "<?php header(\"location: ../../index.php\"); ?>";
+
+      fwrite($indexFile, $content);
+      fclose($indexFile);
+    }
 
     $saveLocation .= "/crops/";
     if(!file_exists($saveLocation))
+    {
       mkdir($saveLocation, 0777);
+
+      $indexFile = fopen($saveLocation . "index.php", "w");
+      $content = "<?php header(\"location: ../../../index.php\"); ?>";
+
+      fwrite($indexFile, $content);
+      fclose($indexFile);
+    }
 
     $data = explode(",", $this->image);
     $data = base64_decode($data[1]);

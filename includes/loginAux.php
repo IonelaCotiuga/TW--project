@@ -22,7 +22,7 @@ if(isset($_POST["submit"]))
   $response = curl_exec($ch);
   $message = json_decode($response, true)["message"];
 
-  if($message == "Logged in successfully.")
+  if($message == "Signed in successfully.")
   {
     setcookie("jwt", json_decode($response, true)["jwt"], time() + (60 * 60), "/");
     header("location: ../profile");

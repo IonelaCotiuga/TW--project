@@ -34,7 +34,7 @@
     <div class="wrapper">
       <!-- the image -->
       <div class="result">
-        <img id="chosen-image" src="cat.png" alt="The chosen image.">
+        <img id="chosen-image" src="building.jpg" alt="The chosen image.">
         <canvas id="canvas"></canvas>
       </div>
 

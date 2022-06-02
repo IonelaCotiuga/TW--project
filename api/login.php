@@ -39,7 +39,7 @@ else
 {
   http_response_code(200);
   echo json_encode(array(
-    "message" => "Logged in successfully.",
+    "message" => "Signed in successfully.",
     "jwt" => $loginResponse
   ));
 }
