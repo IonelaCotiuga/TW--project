@@ -43,6 +43,7 @@
         <button class="button" onclick="crop()">Crop Selection</button>
         <button class="button" onclick="save()">Save Crop</button>
       </div>
+      <div id="text" class="styleText">Crop saved successfully!</div> 
     </div>
 
     <canvas id="canvas2" style="display: none;"></canvas>

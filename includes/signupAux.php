@@ -14,7 +14,7 @@ if(isset($_POST["submit"]))
     "email" => $_POST["email"],
     "password" => $_POST["password"]
   );
-  $url = "http://localhost/TW-Project/api/signup.php";
+  $url = "http://localhost/TW/api/signup.php";
   $ch = curl_init($url);
   $options = array(
     CURLOPT_POST => TRUE,

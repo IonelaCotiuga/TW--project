@@ -112,9 +112,12 @@ function save()
 
   //save image on the server
   let xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("POST", "../includes/saveCrop.php", true);
+  xmlhttp.open("POST", "../includes/saveImage.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("image=" + encodeURIComponent(downloadLink.href));
+  xmlhttp.send("image=" + encodeURIComponent(downloadLink.href)+ "&type=crop");
+
+  document.getElementById("text").style.display = "block";
+    
 }
 
 //reset selection
@@ -128,4 +131,6 @@ function reset()
   image.style.display = "none";
   coordinates = [];
   saveCoordinates = [];
+
+  document.getElementById("text").style.display = "none";
 }

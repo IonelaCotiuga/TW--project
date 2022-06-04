@@ -86,4 +86,13 @@ function saveImage()
   downloadLink.download = "MPic_Image.png";
   downloadLink.href = document.getElementById("canvas").toDataURL("image/png");
   downloadLink.click();
+
+  //save image on the server
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("POST", "../includes/saveImage.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("image=" + encodeURIComponent(downloadLink.href) + "&type=image");
+
+  
+
 }

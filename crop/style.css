@@ -60,6 +60,16 @@ body {
   cursor: pointer;
 }
 
+
+div #text{
+  display: none;
+}
+
+.styleText{
+  color: #0075ff;
+  text-align: center;
+}
+
 /* making it responsive */
 @media screen and (max-width: 1000px) {
   .wrapper {

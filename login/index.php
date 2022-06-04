@@ -52,19 +52,19 @@
         ?>
 
         <div class="containerLogin">
-            <form action="../includes/loginAux.php" method="post">
+            <form action="..\includes\loginAux.php"  method="post">
                 <label for="username" >Username or e-mail:</label>
                 <input type="text" id="username" name="username" class="input">
 
                 <label for="password" >Password:</label>
                 <input type="password" id="password" name="password" class="input">
 
-                <button class="LoginButton" type="submit" name="submit">Log in</button>
+                <button onclick = "test(document.getElementById('username').value,document.getElementById('password').value )" class="LoginButton" name="submit">Log in</button>
             </form>
 
             <a href="../signup">or create an account</a>
         </div>
-
+        <script src = "script.js"></script>
     </body>
 
 

@@ -7,7 +7,7 @@ if(isset($_POST["submit"]))
     "username" => $_POST["username"],
     "password" => $_POST["password"]
   );
-  $url = "http://localhost/TW-Project/api/login.php";
+  $url = "http://localhost/TW/api/login.php";
   $ch = curl_init($url);
   $options = array(
     CURLOPT_POST => TRUE,

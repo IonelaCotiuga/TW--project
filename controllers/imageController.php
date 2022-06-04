@@ -12,8 +12,15 @@ class ImageController
     $this->jwt = JWTController::getPayload($_COOKIE["jwt"]);
   }
 
-  public function saveCrop()
+  public function saveImage($type)
   {
+    if($type == "crop"){
+      $folder = "crops";
+    }
+    else {
+      $folder = "images";
+    }
+
     $saveLocation = "../temp/" . $this->jwt["id"];
     if(!file_exists($saveLocation))
     {
@@ -26,7 +33,7 @@ class ImageController
       fclose($indexFile);
     }
 
-    $saveLocation .= "/crops/";
+    $saveLocation .= "/" .$folder . "/";
     if(!file_exists($saveLocation))
     {
       mkdir($saveLocation, 0777);
