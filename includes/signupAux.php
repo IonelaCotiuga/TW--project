@@ -8,13 +8,14 @@ if(isset($_POST["submit"]))
   }
 
   include_once("../api/signup.php");
+  include_once("../util/config.php");
 
   $body = array(
     "username" => $_POST["username"],
     "email" => $_POST["email"],
     "password" => $_POST["password"]
   );
-  $url = "http://localhost/TW/api/signup.php";
+  $url = $apiUrl . "signup.php";
   $ch = curl_init($url);
   $options = array(
     CURLOPT_POST => TRUE,

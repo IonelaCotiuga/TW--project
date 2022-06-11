@@ -114,10 +114,9 @@ function save()
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "../includes/saveImage.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("image=" + encodeURIComponent(downloadLink.href)+ "&type=crop");
+  xmlhttp.send("image=" + encodeURIComponent(downloadLink.href) + "&type=crop");
 
   document.getElementById("text").style.display = "block";
-    
 }
 
 //reset selection
@@ -129,6 +128,7 @@ function reset()
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(image, 0, 0, image.width, image.height);
   image.style.display = "none";
+
   coordinates = [];
   saveCoordinates = [];
 

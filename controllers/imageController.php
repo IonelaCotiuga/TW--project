@@ -14,26 +14,26 @@ class ImageController
 
   public function saveImage($type)
   {
-    if($type == "crop"){
+    if($type == "crop") {
       $folder = "crops";
     }
     else {
       $folder = "images";
     }
 
-    $saveLocation = "../temp/" . $this->jwt["id"];
+    $saveLocation = "../temp/" . $this->jwt["id"] . "/";
     if(!file_exists($saveLocation))
     {
       mkdir($saveLocation, 0777);
 
-      $indexFile = fopen($saveLocation . "/index.php", "w");
+      $indexFile = fopen($saveLocation . "index.php", "w");
       $content = "<?php header(\"location: ../../index.php\"); ?>";
 
       fwrite($indexFile, $content);
       fclose($indexFile);
     }
 
-    $saveLocation .= "/" .$folder . "/";
+    $saveLocation .= "/" . $folder . "/";
     if(!file_exists($saveLocation))
     {
       mkdir($saveLocation, 0777);

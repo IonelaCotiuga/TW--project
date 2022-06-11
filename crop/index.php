@@ -34,7 +34,7 @@
     <div class="wrapper">
       <!-- the image -->
       <div class="result">
-        <img id="chosen-image" src="building.jpg" alt="The chosen image.">
+        <img id="chosen-image" src="cat.png" alt="The chosen image.">
         <canvas id="canvas"></canvas>
       </div>
 
@@ -43,7 +43,7 @@
         <button class="button" onclick="crop()">Crop Selection</button>
         <button class="button" onclick="save()">Save Crop</button>
       </div>
-      <div id="text" class="styleText">Crop saved successfully!</div> 
+      <div id="text" class="styleText">Crop saved successfully!</div>
     </div>
 
     <canvas id="canvas2" style="display: none;"></canvas>

@@ -18,7 +18,7 @@ class JWTController
     $base64Header = str_replace(["+", "/", "="], ["-", "_", ""], base64_encode($this->header));
     $base64Payload = str_replace(["+", "/", "="], ["-", "_", ""], base64_encode($this->payload));
 
-    $this->signature = hash_hmac("sha256", $base64Header . "." . $base64Payload, $secret_key, true);
+    $this->signature = hash_hmac("sha256", $base64Header . "." . $base64Payload, $secretKey, true);
     $base64Signature = str_replace(["+", "/", "="], ["-", "_", ""], base64_encode($this->signature));
 
     $jwt = $base64Header . "." . $base64Payload . "." . $base64Signature;

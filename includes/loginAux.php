@@ -2,12 +2,13 @@
 if(isset($_POST["submit"]))
 {
   include_once("../api/login.php");
+  include_once("../util/config.php");
 
   $body = array(
     "username" => $_POST["username"],
     "password" => $_POST["password"]
   );
-  $url = "http://localhost/TW/api/login.php";
+  $url = $apiUrl . "login.php";
   $ch = curl_init($url);
   $options = array(
     CURLOPT_POST => TRUE,

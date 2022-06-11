@@ -92,7 +92,4 @@ function saveImage()
   xmlhttp.open("POST", "../includes/saveImage.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send("image=" + encodeURIComponent(downloadLink.href) + "&type=image");
-
-  
-
 }

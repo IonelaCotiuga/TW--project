@@ -13,14 +13,25 @@ class ImageView
   public function viewCrops()
   {
     $path = "../temp/" . $this->jwt["id"] . "/crops/";
-    $fullPath = "https://localhost/TW-Project/" . substr($path, 2, strlen($path)-2);
+    $fullPath = "https://localhost/MPic/" . substr($path, 2, strlen($path)-2);
 
     if(file_exists($path))
     {
       $files = scandir($path, 1);
 
+      echo '<div id="scrollable">';
       for($i=0; $i<count($files)-2; $i+=1)
-        echo '<img style="max-width: 10vw;" src="' . $fullPath . $files[$i] . '">' ;
+      {
+        if($files[$i] == "index.php")
+          continue;
+          
+        echo '<img src="' . $fullPath . $files[$i] . '" onclick="addImage(this)">';
+      }
+      echo '</div>';
+    }
+    else
+    {
+      echo "You don't have any cropped images yet.";
     }
   }
 }

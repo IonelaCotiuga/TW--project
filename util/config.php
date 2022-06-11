@@ -1,8 +1,10 @@
 <?php
-$dbhost = 'localhost';
-$dbname = 'mpic_users';
-$dbuser = 'root';
-$dbpass = '';
+$dbhost = "localhost";
+$dbname = "mpic_users";
+$dbuser = "root";
+$dbpass = "";
 
-$secret_key = 'KEY123';
+$secretKey = "KEY123";
+
+$apiUrl = "http://localhost/MPic/api/";
 ?>
