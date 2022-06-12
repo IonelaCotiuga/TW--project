@@ -89,13 +89,13 @@ body {
   background-color: #1DA1F2;
 }
 
-::-webkit-scrollbar {
+#scrollable::-webkit-scrollbar {
   width: 10px;
 }
-::-webkit-scrollbar-thumb {
+#scrollable::-webkit-scrollbar-thumb {
   background: #888;
 }
-::-webkit-scrollbar-thumb:hover {
+#scrollable::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 

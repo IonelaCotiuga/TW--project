@@ -19,19 +19,48 @@ class ImageView
     {
       $files = scandir($path, 1);
 
-      echo '<div id="scrollable">';
+      echo "<div id='scrollable'>\r\n";
       for($i=0; $i<count($files)-2; $i+=1)
       {
         if($files[$i] == "index.php")
           continue;
-          
-        echo '<img src="' . $fullPath . $files[$i] . '" onclick="addImage(this)">';
+
+        echo "<img src='" . $fullPath . $files[$i] . "' onclick='addImage(this)' alt='Cropped image.'>\r\n";
       }
-      echo '</div>';
+      echo "</div>";
     }
     else
     {
       echo "You don't have any cropped images yet.";
+    }
+  }
+
+  public function viewImages($array)
+  {
+    if(count($array) == 0)
+    {
+      echo "You don't have any images.";
+      return;
+    }
+
+    for($i=0; $i<count($array); $i+=1)
+    {
+      $editLink = "https://localhost/MPic/edit?image=" . $array[$i]["source"];
+      $cropLink = "https://localhost/MPic/crop?image=" . $array[$i]["source"];
+
+      echo "<div class='box'>\r\n";
+        echo "<img src='" . $array[$i]["source"] . "' alt='An image.'>\r\n";
+        echo "<div class='icons'>\r\n";
+          echo "<div class='left-icons'>\r\n";
+            echo "<i class='fa-solid fa-heart'> " . $array[$i]["likes"] . "</i>\r\n";
+          echo "</div>\r\n"; //left-icons
+          echo "<div class='right-icons'>\r\n";
+            echo "<a href='" . $editLink . "'><i class='fa-solid fa-pen-to-square'></i></a>\r\n";
+            echo "<a href='" . $cropLink . "'><i class='fa-solid fa-crop'></i></a>\r\n";
+          echo "</div>\r\n"; //right-icons
+        echo "</div>\r\n"; //icons
+        echo "<p>" . $array[$i]["description"] . "</p>\r\n";
+      echo "</div>\r\n";
     }
   }
 }
