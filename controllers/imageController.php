@@ -26,11 +26,11 @@ class ImageController
     {
       mkdir($saveLocation, 0777);
 
-      $indexFile = fopen($saveLocation . "index.php", "w");
-      $content = "<?php header(\"location: ../../index.php\"); ?>";
-
-      fwrite($indexFile, $content);
-      fclose($indexFile);
+      // $indexFile = fopen($saveLocation . "index.php", "w");
+      // $content = "<?php header(\"location: ../../index.php\"); ?/>";
+      //
+      // fwrite($indexFile, $content);
+      // fclose($indexFile);
     }
 
     $saveLocation .= "/" . $folder . "/";
@@ -38,11 +38,11 @@ class ImageController
     {
       mkdir($saveLocation, 0777);
 
-      $indexFile = fopen($saveLocation . "index.php", "w");
-      $content = "<?php header(\"location: ../../../index.php\"); ?>";
-
-      fwrite($indexFile, $content);
-      fclose($indexFile);
+      // $indexFile = fopen($saveLocation . "index.php", "w");
+      // $content = "<?php header(\"location: ../../../index.php\"); ?/>";
+      //
+      // fwrite($indexFile, $content);
+      // fclose($indexFile);
     }
 
     $data = explode(",", $this->image);

@@ -73,7 +73,7 @@ body {
   margin: 20px auto 20px auto;
   padding: 10px 5px 10px 5px;
   width: 25vmax;
-  background-color: black;
+  background-color: #1a91bc;
   color: white;
   border: none;
   border-radius: 5px;
@@ -85,8 +85,8 @@ body {
   background-color: #4267B2;
 }
 
-#twt {
-  background-color: #1DA1F2;
+#us {
+  background-color: black;
 }
 
 #scrollable::-webkit-scrollbar {

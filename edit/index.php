@@ -35,7 +35,18 @@
       <!-- the image -->
       <div class="result">
         <figure class="image-container">
-          <img id="chosen-image" src="image.png" alt="The chosen image.">
+          <?php
+          if(isset($_GET["image"]) && filter_var($_GET["image"], FILTER_VALIDATE_URL))
+          {
+            $headers = get_headers($_GET["image"], 1);
+            if(isset($headers["Content-Type"]) && substr($headers["Content-Type"], 0, 5) == "image")
+              echo '<img crossorigin="anonymous" id="chosen-image" src="' . $_GET["image"] . '" alt="The chosen image.">';
+            else
+              echo '<img id="chosen-image" src="../util/default_image.png" alt="Default image.">';
+          }
+          else
+            echo '<img id="chosen-image" src="../util/default_image.png" alt="Default image.">';
+          ?>
         </figure>
       </div>
 
@@ -102,10 +113,10 @@
     <canvas id="canvas" style="display: none;"></canvas>
     <button class="save-button" onclick="saveImage()"><i class="fa-solid fa-desktop fa-fw"></i> Save Image</button>
     <button id="fb" class="save-button"><i class="fa-brands fa-facebook-f fa-fw"></i> Post to Facebook</button>
-    <button id="twt" class="save-button"><i class="fa-brands fa-twitter fa-fw"></i> Post to Twitter</button>
+    <button id="us" class="save-button"><i class="fa-brands fa-unsplash"></i> Post to Unsplash</button>
 
     <!-- script -->
-    <script src="filters.js"></script>
+    <script src="script.js"></script>
     <script src="../script.js"></script>
     <!-- fontawesome icons -->
     <script src="https://kit.fontawesome.com/a4f543b8bc.js" crossorigin="anonymous"></script>

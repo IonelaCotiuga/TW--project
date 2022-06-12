@@ -27,7 +27,7 @@
             </a>
         </nav>
 
-        <object class="photo" data="photo3.svg"> </object>
+        <object class="photo" data="util/photo3.svg"> </object>
         <div class="descriptionText">
         <h1>M-PIC - an online photo editing web application</h1>
         <p>The application’s primary goal is to help users easily apply photo editing filters,

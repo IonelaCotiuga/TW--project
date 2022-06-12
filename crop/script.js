@@ -6,11 +6,10 @@ const ctx = canvas.getContext("2d");
 canvas.width = image.width;
 canvas.height = image.height;
 ctx.drawImage(image, 0, 0, image.width, image.height);
-
 image.style.display = "none";
 
 //copy contents for creating the pattern
-const newCanvas = document.getElementById('canvas2');
+const newCanvas = document.getElementById("canvas2");
 const newCtx = newCanvas.getContext("2d");
 newCanvas.width = canvas.width;
 newCanvas.height = canvas.height;
@@ -128,6 +127,11 @@ function reset()
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(image, 0, 0, image.width, image.height);
   image.style.display = "none";
+
+  newCanvas.width = canvas.width;
+  newCanvas.height = canvas.height;
+  newCtx.clearRect(0, 0, canvas.width, canvas.height);
+  newCtx.drawImage(canvas, 0, 0);
 
   coordinates = [];
   saveCoordinates = [];

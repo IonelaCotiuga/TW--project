@@ -60,7 +60,7 @@
 
     <button class="save-button" onclick="saveImage()"><i class="fa-solid fa-desktop fa-fw"></i> Save Image</button>
     <button id="fb" class="save-button"><i class="fa-brands fa-facebook-f fa-fw"></i> Post to Facebook</button>
-    <button id="twt" class="save-button"><i class="fa-brands fa-twitter fa-fw"></i> Post to Twitter</button>
+    <button id="us" class="save-button"><i class="fa-brands fa-unsplash"></i> Post to Unsplash</button>
 
     <!-- script -->
     <script src="script.js"></script>

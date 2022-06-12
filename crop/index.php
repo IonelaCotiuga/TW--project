@@ -34,7 +34,18 @@
     <div class="wrapper">
       <!-- the image -->
       <div class="result">
-        <img id="chosen-image" src="cat.png" alt="The chosen image.">
+        <?php
+        if(isset($_GET["image"]) && filter_var($_GET["image"], FILTER_VALIDATE_URL))
+        {
+          $headers = get_headers($_GET["image"], 1);
+          if(isset($headers["Content-Type"]) && substr($headers["Content-Type"], 0, 5) == "image")
+            echo '<img crossorigin="anonymous" id="chosen-image" src="' . $_GET["image"] . '" alt="The chosen image.">';
+          else
+            echo '<img id="chosen-image" src="../util/default_image.png" alt="Default image.">';
+        }
+        else
+          echo '<img id="chosen-image" src="../util/default_image.png" alt="Default image.">';
+        ?>
         <canvas id="canvas"></canvas>
       </div>
 
