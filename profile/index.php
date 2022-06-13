@@ -32,30 +32,36 @@
                   $defaulturl = urlencode("https://cutewallpaper.org/24/user-icon-png/user-icon-person-free-vector-graphic-on-pixabay.png");
                   $imgurl = "https://www.gravatar.com/avatar/" . $encodedEmail . "?s=200&d=" . $defaulturl;
                 ?>
-                <img class="border_round" id="profile-picture" src="<?php echo $imgurl; ?>" alt="profile picture">
+                <img class="border_round" id="profile-picture"  src="<?php echo $imgurl; ?>" alt="profile picture">
                 <p class="info"><?php echo $jwt["username"]; ?></p>
                 <p class="info"><?php echo $jwt["email"]; ?></p>
                 <button class="button button1">Add photo</button>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <div>
-                    <input class="search" type="text" placeholder="Search photo..">
-                </div>
+               
+                
                 <button class="button button2" onclick="logout()">Logout</button>
             </div>
 
             <div class="split right">
-                <table style="width:100%;" class="toptable">
-                    <tr>
-                    <th class="button princ meniu">  All </th>
-                    <th class="button princ meniu">Facebook</th>
-                    <th class="button princ meniu">Twitter</th>
-                    </tr>
-                </table>
-                <div class="split down">
+                <nav class = "topnav">
+                   
+                    <a class="button princ meniu">All</a>
+                    <a class="button princ meniu">Facebook</a>
+                    <a class="button princ meniu">Twitter</a>
+                    <!-- <table style="width:100%;" class="toptable">
+                        <tr>
+                        <th class="button princ meniu">  All </th>
+                        <th class="button princ meniu">Facebook</th>
+                        <th class="button princ meniu">Twitter</th>
+                        </tr>
+                    </table> -->
+                </nav>
+                <!-- <div class="split down"> -->
+                    <br>
+                    <br>
+                    <div>
+                        <input class="search" type="text" placeholder="Search photo..">
+                    </div>
+
                     <img  class="content" src="image.png" alt="picture">
                     <img  class="content" src="image.png" alt="picture">
                     <img  class="content" src="image.png" alt="picture">
@@ -68,7 +74,7 @@
                     <img  class="content" src="image.png" alt="picture">
                     <img  class="content" src="image.png" alt="picture">
                     <img  class="content" src="image.png" alt="picture">
-                </div>
+                <!-- </div> -->
             </div>
         </div>
 
