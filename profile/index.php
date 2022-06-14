@@ -18,67 +18,111 @@
         <title> Profile </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="style.css" media="screen"/>
+        <link rel="stylesheet" href="style2.css" media="screen"/>
     </head>
 
     <body>
         <div class="container">
             <div class="split left">
 
-                <h1 class="logo">M-PIC</h1>
+                <h1 class="logo"><a href="../index.php">M-PIC</a></h1>
                 <?php
                   $encodedEmail = md5($jwt["email"]);
                   $defaulturl = urlencode("https://cutewallpaper.org/24/user-icon-png/user-icon-person-free-vector-graphic-on-pixabay.png");
                   $imgurl = "https://www.gravatar.com/avatar/" . $encodedEmail . "?s=200&d=" . $defaulturl;
                 ?>
-                <img class="border_round" id="profile-picture"  src="<?php echo $imgurl; ?>" alt="profile picture">
+                <img class="border_round" id="profile-picture" src="<?php echo $imgurl; ?>" alt="profile picture">
                 <p class="info"><?php echo $jwt["username"]; ?></p>
                 <p class="info"><?php echo $jwt["email"]; ?></p>
-                <button class="button button1">Add photo</button>
-               
-                
+                <button id="upload-button" class="button button1">Add photo</button>
+
                 <button class="button button2" onclick="logout()">Logout</button>
             </div>
 
             <div class="split right">
-                <nav class = "topnav">
-                   
-                    <a class="button princ meniu">All</a>
-                    <a class="button princ meniu">Facebook</a>
-                    <a class="button princ meniu">Twitter</a>
-                    <!-- <table style="width:100%;" class="toptable">
-                        <tr>
-                        <th class="button princ meniu">  All </th>
-                        <th class="button princ meniu">Facebook</th>
-                        <th class="button princ meniu">Twitter</th>
-                        </tr>
-                    </table> -->
-                </nav>
-                <!-- <div class="split down"> -->
-                    <br>
-                    <br>
-                    <div>
-                        <input class="search" type="text" placeholder="Search photo..">
+              <nav class = "topnav">
+                    <div id="social-buttons">
+                      <a id="facebook-button" class="button princ meniu" onclick="show('fb')">Facebook</a>
+                      <a id="unsplash-button" class="button princ meniu" onclick="show('us');">Unsplash</a>
+                      <a id="collage-button" class="button princ meniu" onclick="urlRedirect('../collage')">Make Collage</a>
                     </div>
+                </nav>
 
-                    <img  class="content" src="image.png" alt="picture">
-                    <img  class="content" src="image.png" alt="picture">
-                    <img  class="content" src="image.png" alt="picture">
-                    <img  class="content" src="image.png" alt="picture">
-                    <img  class="content" src="image.png" alt="picture">
-                    <img  class="content" src="image.png" alt="picture">
-                    <img  class="content" src="image.png" alt="picture">
-                    <img  class="content" src="image.png" alt="picture">
-                    <img  class="content" src="image.png" alt="picture">
-                    <img  class="content" src="image.png" alt="picture">
-                    <img  class="content" src="image.png" alt="picture">
-                    <img  class="content" src="image.png" alt="picture">
-                <!-- </div> -->
+                <div id="facebook-content">
+                  <?php
+                  require_once("../views/imageView.php");
+
+                  $view = new ImageView();
+
+                  if(!isset($_COOKIE["facebook"]))
+                  {
+                    $view->viewAuthButton("facebook", "#");
+                  }
+                  else
+                  {
+                    echo "Under construction";
+                  }
+                  ?>
+                </div>
+
+                <div id="unsplash-content">
+                  <?php
+                  require_once("../controllers/unsplashController.php");
+                  require_once("../views/imageView.php");
+
+                  $unsplash = new UnsplashController();
+                  $view = new ImageView();
+
+                  if(!isset($_COOKIE["unsplash"]))
+                  {
+                    $view->viewAuthButton("unsplash", $unsplash->getAuthUrl());
+                  }
+                  else
+                  {
+                    echo "<div id='searchbar'>\r\n";
+                    echo "<input id='search' type='text' onkeyup='searchImages()' placeholder='Search images'/>\r\n";
+                    echo "</div>\r\n";
+
+                    $array = $unsplash->getPhotos($_COOKIE["unsplash"]);
+
+                    echo "<div id='wrapper'>\r\n";
+                    $view->viewImages($array);
+                    echo "</div>\r\n";
+                  }
+                  ?>
+                </div>
             </div>
         </div>
 
+        <!-- upload image -->
+        <div id="modal">
+          <div id="modal-content">
+            <span class="close">&times;</span>
+
+            <div id="modal-wrapper">
+              <input type="file" id="image-input" accept="image/jpg, image/png" style="display: none;"/>
+              <input type="button" value="Choose File" onclick="document.getElementById('image-input').click();" />
+
+              <p id="loading-text">Uploading, please wait a moment...</p>
+
+              <div id="display">
+                <img src="#" id="chosen-image" alt="The chosen image."/>
+
+                <div>
+                  <button class="modal-button" onclick="redirect('edit')">Edit</button>
+                  <button class="modal-button" onclick="redirect('crop')">Crop</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- script -->
+        <script src="script.js"></script>
         <script src="../script.js"></script>
+        <!-- fontawesome icons -->
+        <script src="https://kit.fontawesome.com/a4f543b8bc.js" crossorigin="anonymous"></script>
     </body>
 
 </html>

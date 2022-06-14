@@ -35,11 +35,21 @@
       <!-- the image -->
       <div class="result">
         <?php
-        if(isset($_GET["image"]) && filter_var($_GET["image"], FILTER_VALIDATE_URL))
+        require_once("../controllers/jwtController.php");
+
+        $jwt = JWTController::getPayload($_COOKIE["jwt"]);
+        $path = "../temp/" . $jwt["id"] . "/image.png";
+
+        if(isset($_GET["image"]))
         {
-          $headers = get_headers($_GET["image"], 1);
-          if(isset($headers["Content-Type"]) && substr($headers["Content-Type"], 0, 5) == "image")
-            echo '<img crossorigin="anonymous" id="chosen-image" src="' . $_GET["image"] . '" alt="The chosen image.">';
+          if(filter_var($_GET["image"], FILTER_VALIDATE_URL))
+          {
+            $headers = get_headers($_GET["image"], 1);
+            if(isset($headers["Content-Type"]) && substr($headers["Content-Type"], 0, 5) == "image")
+              echo '<img crossorigin="anonymous" id="chosen-image" src="' . $_GET["image"] . '" alt="The chosen image.">';
+          }
+          else if($_GET["image"] == "new_image" && file_exists($path))
+            echo '<img id="chosen-image" src="' . $path . '" alt="The chosen image.">';
           else
             echo '<img id="chosen-image" src="../util/default_image.png" alt="Default image.">';
         }

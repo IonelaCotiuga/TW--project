@@ -1,10 +1,14 @@
 <?php
+//database
 $dbhost = "localhost";
 $dbname = "mpic_users";
 $dbuser = "root";
 $dbpass = "";
 
-$secretKey = "KEY123";
+//site urls
+$baseUrl = "http://localhost/MPic/";
+$apiUrl = $baseUrl . "api/";
 
-$apiUrl = "http://localhost/MPic/api/";
+//other
+$secretKey = "KEY123";
 ?>

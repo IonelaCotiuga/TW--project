@@ -27,7 +27,15 @@ class JWTController
 
   public static function validateToken($token)
   {
-    //
+    $jwt = self::getPayload($token);
+
+    if(!isset($jwt["id"]) || !isset($jwt["username"]) || !isset($jwt["email"]) || !isset($jwt["iat"]) || !isset($jwt["exp"]))
+      return false;
+
+    if(time() <= $jwt["exp"])
+      return true;
+
+    return false;
   }
 
   public static function getPayload($token)

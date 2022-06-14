@@ -36,11 +36,21 @@
       <div class="result">
         <figure class="image-container">
           <?php
-          if(isset($_GET["image"]) && filter_var($_GET["image"], FILTER_VALIDATE_URL))
+          require_once("../controllers/jwtController.php");
+
+          $jwt = JWTController::getPayload($_COOKIE["jwt"]);
+          $path = "../temp/" . $jwt["id"] . "/image.png";
+
+          if(isset($_GET["image"]))
           {
-            $headers = get_headers($_GET["image"], 1);
-            if(isset($headers["Content-Type"]) && substr($headers["Content-Type"], 0, 5) == "image")
-              echo '<img crossorigin="anonymous" id="chosen-image" src="' . $_GET["image"] . '" alt="The chosen image.">';
+            if(filter_var($_GET["image"], FILTER_VALIDATE_URL))
+            {
+              $headers = get_headers($_GET["image"], 1);
+              if(isset($headers["Content-Type"]) && substr($headers["Content-Type"], 0, 5) == "image")
+                echo '<img crossorigin="anonymous" id="chosen-image" src="' . $_GET["image"] . '" alt="The chosen image.">';
+            }
+            else if($_GET["image"] == "new_image" && file_exists($path))
+              echo '<img id="chosen-image" src="' . $path . '" alt="The chosen image.">';
             else
               echo '<img id="chosen-image" src="../util/default_image.png" alt="Default image.">';
           }
@@ -113,7 +123,6 @@
     <canvas id="canvas" style="display: none;"></canvas>
     <button class="save-button" onclick="saveImage()"><i class="fa-solid fa-desktop fa-fw"></i> Save Image</button>
     <button id="fb" class="save-button"><i class="fa-brands fa-facebook-f fa-fw"></i> Post to Facebook</button>
-    <button id="us" class="save-button"><i class="fa-brands fa-unsplash"></i> Post to Unsplash</button>
 
     <!-- script -->
     <script src="script.js"></script>

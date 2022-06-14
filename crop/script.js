@@ -1,3 +1,11 @@
+window.onload = () => {
+  if(!window.location.hash)
+  {
+    window.location += "#";
+    window.location.reload();
+  }
+}
+
 const image = document.getElementById("chosen-image");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");

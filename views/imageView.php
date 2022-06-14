@@ -12,8 +12,10 @@ class ImageView
 
   public function viewCrops()
   {
+    require_once("../util/config.php");
+
     $path = "../temp/" . $this->jwt["id"] . "/crops/";
-    $fullPath = "https://localhost/MPic/" . substr($path, 2, strlen($path)-2);
+    $fullPath = $baseUrl . substr($path, 2, strlen($path)-2);
 
     if(file_exists($path))
     {
@@ -37,6 +39,8 @@ class ImageView
 
   public function viewImages($array)
   {
+    require_once("../util/config.php");
+
     if(count($array) == 0)
     {
       echo "You don't have any images.";
@@ -45,8 +49,8 @@ class ImageView
 
     for($i=0; $i<count($array); $i+=1)
     {
-      $editLink = "https://localhost/MPic/edit?image=" . $array[$i]["source"];
-      $cropLink = "https://localhost/MPic/crop?image=" . $array[$i]["source"];
+      $editLink = $baseUrl . "edit?image=" . $array[$i]["source"];
+      $cropLink = $baseUrl . "crop?image=" . $array[$i]["source"];
 
       echo "<div class='box'>\r\n";
         echo "<img src='" . $array[$i]["source"] . "' alt='An image.'>\r\n";
@@ -62,6 +66,24 @@ class ImageView
         echo "<p>" . $array[$i]["description"] . "</p>\r\n";
       echo "</div>\r\n";
     }
+  }
+
+  public function viewAuthButton($platform, $link)
+  {
+    if($platform == "facebook")
+    {
+      $color = "#4267B2";
+      $icon = "fa-brands fa-facebook-f fa-fw";
+    }
+    else
+    {
+      $color = "black";
+      $icon = "fa-brands fa-unsplash";
+    }
+
+    echo "<div class='center-button'>\r\n";
+    echo "<button class='auth-button' onclick='urlRedirect(\"" . $link . "\")' style='background-color: " . $color . ";'><i class='" . $icon . "'></i>\tImport Photos</button>\r\n";
+    echo "</div>\r\n";
   }
 }
 ?>

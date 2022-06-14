@@ -87,10 +87,6 @@ body {
   background-color: #4267B2;
 }
 
-#us {
-  background-color: black;
-}
-
 /* making it responsive */
 @media screen and (max-width: 1000px) {
   .wrapper {

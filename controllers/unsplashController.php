@@ -42,26 +42,19 @@ class UnsplashController
         "Authorization: Bearer " . $token
     );
     $images = array();
-    $counter = 1;
 
-    while($counter <= 5)
-    {                                  //todo: replace with $this->getName()
-      $url = self::API_URL . "users/" . "girl_behindthelens" . "/photos?per_page=20&page=" . $counter;
-      $response = json_decode($this->makeRequest("GET", $url, $headers), true);
-      if(empty($response))
-        break;
+                             //todo: replace with $this->getName()
+    $url = self::API_URL . "users/" . "girl_behindthelens" . "/photos?per_page=100";
+    $response = json_decode($this->makeRequest("GET", $url, $headers), true);
 
-      for($i=0; $i<count($response); $i+=1)
-      {
-        $data = array(
-          "source" => $response[$i]["urls"]["regular"],
-          "likes" => $response[$i]["likes"],
-          "description" => isset($response[$i]["description"]) ? $response[$i]["description"] : "<i>No description</i>"
-        );
-        array_push($images, $data);
-      }
-
-      $counter += 1;
+    for($i=0; $i<count($response); $i+=1)
+    {
+      $data = array(
+        "source" => $response[$i]["urls"]["regular"],
+        "likes" => $response[$i]["likes"],
+        "description" => isset($response[$i]["description"]) ? $response[$i]["description"] : "<i>No description</i>"
+      );
+      array_push($images, $data);
     }
 
     return $images;

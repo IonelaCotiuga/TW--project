@@ -8,7 +8,7 @@ $type = $_POST["type"];
 if(!empty($image))
 {
   require_once("../controllers/imageController.php");
-  
+
   $contr = new ImageController($image);
   $contr->saveImage($type);
 
