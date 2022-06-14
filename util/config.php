@@ -7,6 +7,7 @@ $dbpass = "";
 
 //site urls
 $baseUrl = "http://localhost/MPic/";
+$baseUrlSecure = "https://localhost/MPic/";
 $apiUrl = $baseUrl . "api/";
 
 //other

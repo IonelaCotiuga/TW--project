@@ -15,7 +15,7 @@ class ImageView
     require_once("../util/config.php");
 
     $path = "../temp/" . $this->jwt["id"] . "/crops/";
-    $fullPath = $baseUrl . substr($path, 2, strlen($path)-2);
+    $fullPath = $baseUrlSecure . substr($path, 2, strlen($path)-2);
 
     if(file_exists($path))
     {

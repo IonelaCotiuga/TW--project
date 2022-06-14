@@ -96,8 +96,9 @@ function resizeImage()
   {
     if(stickers[i].selected == true)
     {
-      stickers[i].width += parseInt(sizeSlider.value) - stickers[i].height;
-      stickers[i].height = parseInt(sizeSlider.value);
+      let newWidth = parseInt(sizeSlider.value);
+      stickers[i].height = (stickers[i].height / stickers[i].width) * newWidth;
+      stickers[i].width = newWidth;
     }
   }
 
@@ -140,4 +141,20 @@ function saveImage()
   xmlhttp.open("POST", "../includes/saveImage.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send("image=" + encodeURIComponent(downloadLink.href) + "&type=image");
+}
+
+window.onclick = () => {
+  const wrapper = document.getElementsByClassName("wrapper")[0];
+  const result = document.getElementsByClassName("result")[0];
+  const editor = document.getElementsByClassName("editor")[0];
+
+  if(event.target == wrapper || event.target == result || event.target == editor)
+  {
+    selectedImage = -1;
+    for(let i=0; i<stickers.length; i++)
+    {
+      stickers[i].selected = false;
+    }
+    redraw();
+  }
 }
