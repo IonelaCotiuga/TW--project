@@ -61,7 +61,9 @@
 
                 <button class="LoginButton" type="submit" name="submit">Log in</button>
             </form>
-
+            
+            <a href = "../password" class="passwordText"> Forgot password? </a>
+            
             <a href="../signup">or create an account</a>
         </div>
 
