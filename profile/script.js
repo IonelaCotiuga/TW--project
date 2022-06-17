@@ -1,9 +1,13 @@
 if(window.location.hash)
 {
-  if(window.location.hash.substring(1) == "unsplash")
-    show("us");
+  if(window.location.hash.substring(1) == "imgur")
+    show(1);
+  else if(window.location.hash.substring(1) == "instagram")
+    show(2);
+  else if(window.location.hash.substring(1) == "unsplash")
+    show(3);
   else
-    show("fb");
+    show(0);
 }
 
 function urlRedirect(url)
@@ -31,27 +35,29 @@ function searchImages()
   }
 }
 
-function show(platform)
+function show(index)
 {
   const facebook = document.getElementById("facebook-content");
+  const imgur = document.getElementById("imgur-content");
+  const instagram = document.getElementById("instagram-content");
   const unsplash = document.getElementById("unsplash-content");
-  const facebookButton = document.getElementById("facebook-button");
-  const unsplashButton = document.getElementById("unsplash-button");
+  const platforms = [facebook, imgur, instagram, unsplash];
 
-  if(platform == "fb")
-  {
-    unsplash.style.display = "none";
-    facebook.style.display = "block";
-    unsplashButton.style.textDecoration = "none";
-    facebookButton.style.textDecoration = "underline";
-  }
+  const facebookButton = document.getElementById("facebook-button");
+  const imgurButton = document.getElementById("imgur-button");
+  const instagramButton = document.getElementById("instagram-button");
+  const unsplashButton = document.getElementById("unsplash-button");
+  const buttons = [facebookButton, imgurButton, instagramButton, unsplashButton];
+
+  platforms.map(x => x.style.display = "none");
+  buttons.map(x => x.style.textDecoration = "none");
+  platforms[index].style.display = "block";
+  buttons[index].style.textDecoration = "underline";
+
+  if(platforms[index].getElementsByClassName("auth-button")[0])
+    document.getElementById("search").style.display = "none";
   else
-  {
-    unsplash.style.display = "block";
-    facebook.style.display = "none";
-    unsplashButton.style.textDecoration = "underline";
-    facebookButton.style.textDecoration = "none";
-  }
+    document.getElementById("search").style.display = "inline";
 }
 
 //upload

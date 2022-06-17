@@ -56,7 +56,7 @@ html,body{
 
 #profile-picture{
     width: 8.9%;
-    height: 15.046296296296296296296296296296%;
+    height: auto;
     padding-left: 8%;
     padding-top: 4.5%;
 }
@@ -498,10 +498,10 @@ p.info{
 
     .content{
         height:29%;
-    width: auto;
-    padding-left: 3%;
-    padding-top: 2.5%;
-    padding-bottom: 2.5%;
+        width: auto;
+        padding-left: 3%;
+        padding-top: 2.5%;
+        padding-bottom: 2.5%;
     }
 
     .meniu{

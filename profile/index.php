@@ -9,6 +9,14 @@
   //user data
   require_once("../controllers/jwtController.php");
   $jwt = JWTController::getPayload($_COOKIE["jwt"]);
+
+  //photo data
+  require_once("../controllers/imgurController.php");
+  require_once("../controllers/instagramController.php");
+  require_once("../controllers/unsplashController.php");
+  require_once("../views/imageView.php");
+
+  $view = new ImageView();
 ?>
 
 <!DOCTYPE html>
@@ -41,20 +49,23 @@
             </div>
 
             <div class="split right">
+              <div id="searchbar">
               <nav class = "topnav">
                     <div id="social-buttons">
-                      <a id="facebook-button" class="button princ meniu" onclick="show('fb')">Facebook</a>
-                      <a id="unsplash-button" class="button princ meniu" onclick="show('us');">Unsplash</a>
+                      <a id="facebook-button" class="button princ meniu" onclick="show(0)">Facebook</a>
+                      <a id="imgur-button" class="button princ meniu" onclick="show(1);">Imgur</a>
+                      <a id="instagram-button" class="button princ meniu" onclick="show(2);">Instagram</a>
+                      <a id="unsplash-button" class="button princ meniu" onclick="show(3);">Unsplash</a>
                       <a id="collage-button" class="button princ meniu" onclick="urlRedirect('../collage')">Make Collage</a>
                     </div>
                 </nav>
 
+                <div id="searchbar">
+                  <input id="search" type="text" onkeyup="searchImages()" placeholder="Search images"/>
+                </div>
+
                 <div id="facebook-content">
                   <?php
-                  require_once("../views/imageView.php");
-
-                  $view = new ImageView();
-
                   if(!isset($_COOKIE["facebook"]))
                   {
                     $view->viewAuthButton("facebook", "#");
@@ -66,13 +77,47 @@
                   ?>
                 </div>
 
+                <div id="imgur-content">
+                  <?php
+                  $imgur = new ImgurController();
+
+                  if(!isset($_COOKIE["imgur"]))
+                  {
+                    $view->viewAuthButton("imgur", $imgur->getAuthUrl());
+                  }
+                  else
+                  {
+                    $array = $imgur->getPhotos($_COOKIE["imgur"]);
+
+                    echo "<div id='wrapper'>\r\n";
+                    $view->viewImages($array);
+                    echo "</div>\r\n";
+                  }
+                  ?>
+                </div>
+
+                <div id="instagram-content">
+                  <?php
+                  $instagram = new InstagramController();
+
+                  if(!isset($_COOKIE["instagram"]))
+                  {
+                    $view->viewAuthButton("instagram", $instagram->getAuthUrl());
+                  }
+                  else
+                  {
+                    $array = $instagram->getPhotos($_COOKIE["instagram"]);
+
+                    echo "<div id='wrapper'>\r\n";
+                    $view->viewImages($array);
+                    echo "</div>\r\n";
+                  }
+                  ?>
+                </div>
+
                 <div id="unsplash-content">
                   <?php
-                  require_once("../controllers/unsplashController.php");
-                  require_once("../views/imageView.php");
-
                   $unsplash = new UnsplashController();
-                  $view = new ImageView();
 
                   if(!isset($_COOKIE["unsplash"]))
                   {
@@ -80,10 +125,6 @@
                   }
                   else
                   {
-                    echo "<div id='searchbar'>\r\n";
-                    echo "<input id='search' type='text' onkeyup='searchImages()' placeholder='Search images'/>\r\n";
-                    echo "</div>\r\n";
-
                     $array = $unsplash->getPhotos($_COOKIE["unsplash"]);
 
                     echo "<div id='wrapper'>\r\n";

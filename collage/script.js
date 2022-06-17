@@ -34,11 +34,17 @@ function redraw()
 
     if(stickers[i].selected == true)
     {
-      ctx.fillStyle = "blue";
-      ctx.fillRect(stickers[i].x, stickers[i].y, 5, 5);
-      ctx.fillRect(stickers[i].x + stickers[i].width, stickers[i].y + stickers[i].height, 5, 5);
-      ctx.fillRect(stickers[i].x, stickers[i].y + stickers[i].height, 5, 5);
-      ctx.fillRect(stickers[i].x + stickers[i].width, stickers[i].y, 5, 5);
+      ctx.fillStyle = "#797A7B";
+      drawCircle(stickers[i].x, stickers[i].y, 5, 0, 2 * Math.PI);
+      drawCircle(stickers[i].x + stickers[i].width, stickers[i].y + stickers[i].height, 5, 0, 2 * Math.PI);
+      drawCircle(stickers[i].x, stickers[i].y + stickers[i].height, 5, 0, 2 * Math.PI);
+      drawCircle(stickers[i].x + stickers[i].width, stickers[i].y, 5, 0, 2 * Math.PI);
+
+      ctx.fillStyle = "#F2F3F5";
+      drawCircle(stickers[i].x, stickers[i].y, 4, 0, 2 * Math.PI);
+      drawCircle(stickers[i].x + stickers[i].width, stickers[i].y + stickers[i].height, 4, 0, 2 * Math.PI);
+      drawCircle(stickers[i].x, stickers[i].y + stickers[i].height, 4, 0, 2 * Math.PI);
+      drawCircle(stickers[i].x + stickers[i].width, stickers[i].y, 4, 0, 2 * Math.PI);
     }
   }
 }
@@ -88,6 +94,13 @@ canvas.onmousemove = (e) => {
     startX = xCoord;
     startY = yCoord;
   }
+}
+
+function drawCircle(x, y, size)
+{
+  ctx.beginPath();
+  ctx.arc(x, y, size, 0, 2 * Math.PI);
+  ctx.fill();
 }
 
 function resizeImage()

@@ -60,7 +60,7 @@ a {
   margin-bottom: 20px;
 }
 
-#unsplash-content {
+#unsplash-content, #instagram-content, #imgur-content, #search {
   display: none;
 }
 
@@ -151,4 +151,10 @@ a {
 h1 a {
   color: white;
   text-decoration: none;
+}
+
+@media screen and (max-width: 595px) {
+  #social-buttons {
+    flex-direction: column;
+  }
 }

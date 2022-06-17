@@ -38,8 +38,15 @@ canvas.onclick = function clickEvent(e)
   };
   coordinates.push(point);
 
-  ctx.fillStyle = "blue";
-  ctx.fillRect(x, y, 5, 5);
+  ctx.fillStyle = "#797A7B";
+  ctx.beginPath();
+  ctx.arc(x, y, 5, 0, 2 * Math.PI);
+  ctx.fill();
+
+  ctx.fillStyle = "#F2F3F5";
+  ctx.beginPath();
+  ctx.arc(x, y, 4, 0, 2 * Math.PI);
+  ctx.fill();
 }
 
 //crop the image

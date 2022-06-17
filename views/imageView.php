@@ -39,7 +39,7 @@ class ImageView
 
   public function viewImages($array)
   {
-    require_once("../util/config.php");
+    require("../util/config.php");
 
     if(count($array) == 0)
     {
@@ -49,8 +49,8 @@ class ImageView
 
     for($i=0; $i<count($array); $i+=1)
     {
-      $editLink = $baseUrl . "edit?image=" . $array[$i]["source"];
-      $cropLink = $baseUrl . "crop?image=" . $array[$i]["source"];
+      $editLink = $baseUrl . "edit?image=" . rawurlencode($array[$i]["source"]);
+      $cropLink = $baseUrl . "crop?image=" . rawurlencode($array[$i]["source"]);
 
       echo "<div class='box'>\r\n";
         echo "<img src='" . $array[$i]["source"] . "' alt='An image.'>\r\n";
@@ -75,14 +75,24 @@ class ImageView
       $color = "#4267B2";
       $icon = "fa-brands fa-facebook-f fa-fw";
     }
-    else
+    else if($platform == "imgur")
+    {
+      $color = "#21bd79";
+      $icon = "fa-solid fa-camera";
+    }
+    else if($platform == "instagram")
+    {
+      $color = "rgb(245,133,41); background: linear-gradient(90deg, rgba(245,133,41,1) 0%, rgba(221,42,123,1) 48%, rgba(81,91,212,1) 100%)";
+      $icon = "fa-brands fa-instagram";
+    }
+    else if($platform == "unsplash")
     {
       $color = "black";
       $icon = "fa-brands fa-unsplash";
     }
 
     echo "<div class='center-button'>\r\n";
-    echo "<button class='auth-button' onclick='urlRedirect(\"" . $link . "\")' style='background-color: " . $color . ";'><i class='" . $icon . "'></i>\tImport Photos</button>\r\n";
+    echo "<button class='auth-button' onclick='urlRedirect(\"" . $link . "\")' style='background: " . $color . ";'><i class='" . $icon . "'></i>\tImport Photos</button>\r\n";
     echo "</div>\r\n";
   }
 }
