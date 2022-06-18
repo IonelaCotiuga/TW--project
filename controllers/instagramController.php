@@ -25,8 +25,8 @@ class InstagramController
   {
     $url = self::$apiUrl . "oauth/access_token";
     $params = array(
-      "appId" => self::$appId,
-      "appSecret" => self::$appSecret,
+      "client_id" => self::$appId,
+      "client_secret" => self::$appSecret,
       "grant_type" => "authorization_code",
       "redirect_uri" => "https://localhost/MPic/includes/instagram.php",
       "code" => $code

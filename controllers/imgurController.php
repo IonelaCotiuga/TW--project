@@ -9,7 +9,7 @@ class ImgurController
 
   public function getAuthUrl()
   {
-    $url = self::$apiUrl . "oauth2/authorize?response_type=token&clientId=" . self::$clientId . "&state=" . md5(rand());
+    $url = self::$apiUrl . "oauth2/authorize?response_type=token&client_id=" . self::$clientId . "&state=" . md5(rand());
 
     return $url;
   }

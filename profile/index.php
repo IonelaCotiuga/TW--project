@@ -49,7 +49,6 @@
             </div>
 
             <div class="split right">
-              <div id="searchbar">
               <nav class = "topnav">
                     <div id="social-buttons">
                       <a id="facebook-button" class="button princ meniu" onclick="show(0)">Facebook</a>
