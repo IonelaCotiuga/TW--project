@@ -16,7 +16,7 @@
             <a href="..">Home</a>
             <a href="../about">About</a>
             <a href="../contact">Contact us</a>
-            <a href="#" class="active">Log in</a>
+            <a href="../login">Log in</a>
             <a href="../signup">Sign up</a>
             <a href="javascript:void(0);" class="icon" onclick="expand()">
                 <i class="fa fa-bars"></i>
@@ -26,9 +26,9 @@
 
         <p class="LoginWord"> Reset your password </p>
         <!-- <p class="LoginWord"> nasol </p> -->
-        
+
         <div class="containerLogin">
-             
+
             <?php
                 $selector = $_GET["selector"];
                 $validator = $_GET["validator"];
@@ -39,7 +39,7 @@
                     if(ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false ){
                         ?>
 
-                        <form action="includes/reset-password.php" method="post">
+                        <form action="../includes/reset-password.php" method="post">
                             <input type = "hidden" name="selector" value="<?php echo $selector?>">
                             <input type = "hidden" name="validator" value="<?php echo $validator?>">
                             <input type = "password" name="pwd" placeholder="Enter a new password...">
@@ -55,12 +55,12 @@
 
 
 
-            
+
         </div>
 
 
 
-          
+
 
     </body>
 

@@ -1,7 +1,7 @@
 <?php
 class DBHandler
 {
-  protected function connect()
+  public function connect()
   {
     include("../util/config.php");
     try

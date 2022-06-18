@@ -11,9 +11,9 @@
   $jwt = JWTController::getPayload($_COOKIE["jwt"]);
 
   //photo data
+  require_once("../controllers/facebookController.php");
   require_once("../controllers/imgurController.php");
   require_once("../controllers/instagramController.php");
-  require_once("../controllers/facebookController.php");
   require_once("../controllers/unsplashController.php");
   require_once("../views/imageView.php");
 
@@ -79,8 +79,6 @@
                     echo "<div id='wrapper'>\r\n";
                     $view->viewImages($array);
                     echo "</div>\r\n";
-
-                    echo "cevaa";
                   }
                   ?>
                 </div>

@@ -16,7 +16,7 @@
             <a href="..">Home</a>
             <a href="../about">About</a>
             <a href="../contact">Contact us</a>
-            <a href="#" class="active">Log in</a>
+            <a href="../login">Log in</a>
             <a href="../signup">Sign up</a>
             <a href="javascript:void(0);" class="icon" onclick="expand()">
                 <i class="fa fa-bars"></i>
@@ -26,9 +26,9 @@
 
         <p class="LoginWord"> Forgot your password? </p>
         <!-- <p class="LoginWord"> nasol </p> -->
-        
+
         <div class="containerLogin">
-              <form action="includes/reset-request.php" method="post">
+              <form action="../includes/reset-request.php" method="post">
                 <label for="username" >E-mail:</label>
                 <input type="text" id="username" name="email" class="input" placeholder="Enter your e-mail address..">
 
@@ -49,7 +49,7 @@
 
 
 
-          
+
 
     </body>
 
