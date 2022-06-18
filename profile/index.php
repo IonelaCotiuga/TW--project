@@ -65,13 +65,21 @@
 
                 <div id="facebook-content">
                   <?php
+                  $facebook = new FacebookController();
+
                   if(!isset($_COOKIE["facebook"]))
                   {
-                    $view->viewAuthButton("facebook", "#");
+                    $view->viewAuthButton("facebook", $facebook->getAuthUrl());
                   }
                   else
                   {
-                    echo "Under construction";
+                    $array = $facebook->getPhotos($_COOKIE["facebook"]);
+
+                    echo "<div id='wrapper'>\r\n";
+                    $view->viewImages($array);
+                    echo "</div>\r\n";
+
+                    echo "cevaa";
                   }
                   ?>
                 </div>
