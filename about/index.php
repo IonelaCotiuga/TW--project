@@ -45,7 +45,7 @@
             <p>In your profile you can see your information, set a profile photo, add photos or even search them by tags and other information. Here you will find all you need:</p>
             <img class="infophoto" src="profilInfo.png" alt="infophoto">
 
-            <p>Also, you can choose if you want to see all your photos or those from a specific platform.</p>
+            <p>You can also choose the platform from which you want to import your photos.</p>
             <img class="content" src="content.png" alt="content">
         </div>
     </body>
