@@ -91,7 +91,7 @@ class FacebookController
 
     $value = $value['data'];
 
-    
+
     for($i = 0; $i < count($value); $i+=1){
       if(!isset($value[$i]["full_picture"]))
         continue;
@@ -106,7 +106,7 @@ class FacebookController
       );
 
       array_push($images, $data);
-      
+
     }
 
     return $images;

@@ -46,7 +46,7 @@ class ImgurController
     $headers = array(
       "Authorization: Bearer " . $accessToken
     );
-    $data = explode(",", $this->image);
+    $data = explode(",", $image);
     $body = array(
       "image" => $data[1],
       "type" => "base64"
@@ -54,7 +54,7 @@ class ImgurController
 
     $response = $this->makeRequest("POST", $url, $headers, $body);
 
-    return $response;
+    return $response["success"];
   }
 
   public function makeRequest($method, $url, $headers, $body = null)

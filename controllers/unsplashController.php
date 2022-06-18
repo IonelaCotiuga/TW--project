@@ -37,8 +37,7 @@ class UnsplashController
 
   public function getPhotos($token)
   {
-                                      //todo: replace with $this->getName()
-    $url = self::$apiUrl . "users/" . "girl_behindthelens" . "/photos?per_page=100";
+    $url = self::$apiUrl . "users/" . $this->getName($token) . "/photos?per_page=100";
     $headers = array(
         "Authorization: Bearer " . $token
     );

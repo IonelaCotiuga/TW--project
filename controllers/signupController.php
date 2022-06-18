@@ -44,7 +44,7 @@ class SignupController extends SignupModel
 
   private function userExists()
   {
-    if($this->checkUser($this->username, $this->email) == 0)
+    if($this->checkUser($this->username, $this->email) == -1)
       return true;
     return false;
   }

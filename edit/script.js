@@ -55,7 +55,7 @@ function flipImage()
 }
 
 //saving the image
-function saveImage()
+function paintCanvas()
 {
   const canvas = document.getElementById("canvas");
   canvas.width = image.naturalWidth;
@@ -81,15 +81,48 @@ function saveImage()
   }
   else
     context.drawImage(image, 0, 0, image.naturalWidth, image.naturalHeight);
+}
+
+function saveImage()
+{
+  paintCanvas();
 
   let downloadLink = document.createElement("a");
   downloadLink.download = "MPic_Image.png";
   downloadLink.href = document.getElementById("canvas").toDataURL("image/png");
   downloadLink.click();
 
-  //save image on the server
+  saveToServer(downloadLink.href);
+}
+
+function postImage(platform)
+{
+  paintCanvas();
+
+  let image = document.getElementById("canvas").toDataURL("image/png");
+
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("POST", "../includes/postImage.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("image=" + encodeURIComponent(image) + "&platform=" + platform);
+
+  document.getElementById("text").style.display = "block";
+  document.getElementById("text").innerHTML = "Uploading image...";
+
+  xmlhttp.onreadystatechange = function() {
+    if(this.readyState == 4 && this.status == 200)
+    {
+       document.getElementById("text").innerHTML = "Successfully uploaded image.";
+    }
+  };
+
+  saveToServer(image);
+}
+
+function saveToServer(url)
+{
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "../includes/saveImage.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("image=" + encodeURIComponent(downloadLink.href) + "&type=image");
+  xmlhttp.send("image=" + encodeURIComponent(url) + "&type=image");
 }
