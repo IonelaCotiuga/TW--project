@@ -24,17 +24,26 @@
         </nav>
         <script src="../script.js"></script>
 
-        <p class="LoginWord"> Forgot password? </p>
+        <p class="LoginWord"> Forgot your password? </p>
         <!-- <p class="LoginWord"> nasol </p> -->
         
         <div class="containerLogin">
-            
+              <form action="includes/reset-request.php" method="post">
                 <label for="username" >E-mail:</label>
-                <input type="text" id="username" name="username" class="input">
+                <input type="text" id="username" name="email" class="input" placeholder="Enter your e-mail address..">
 
-                <button class="LoginButton" type="submit" name="submit">Send my password</button>
-            
-            
+                <button class="LoginButton" type="submit" name="reset-request-submit">Receive new password by email</button>
+              </form>
+
+              <?php
+                if(isset($_GET["reset"])){
+                  if($_GET["reset"] == "succes"){
+                    echo '<p> class = "signupsuccess"> Check your email!</p>';
+                  }
+                }
+
+              ?>
+
             <br>
         </div>
 

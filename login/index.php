@@ -62,7 +62,16 @@
                 <button class="LoginButton" type="submit" name="submit">Log in</button>
             </form>
             
-            <a href = "../password" class="passwordText"> Forgot password? </a>
+
+            <?php
+              // $newpwd = $_GET("newpwd");
+              // if(isset($newpwd)){
+              //   if ($newpwd == "passwordupdated"){
+              //     echo '<p class = "signupsuccess"> Your password has been reset!</p>';
+              //   }
+              // }
+            ?> 
+            <a href = "../password/index.php" class="passwordText"> Forgot your password? </a>
             
             <a href="../signup">or create an account</a>
         </div>
