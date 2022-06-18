@@ -95,9 +95,13 @@ class FacebookController
     for($i = 0; $i < count($value); $i+=1){
       if(!isset($value[$i]["full_picture"]))
         continue;
+
+      $photo_id =  $value[$i]["id"];
+      $likes = $this->getNrLikes($accessToken, $photo_id);
+
       $data = array(
         "source" => $value[$i]["full_picture"],
-        "likes" => "??",
+        "likes" => $likes,
         "description" => isset($value[$i]["message"]) ? $value[$i]["message"] : "<i>No description</i>"
       );
 
@@ -106,6 +110,31 @@ class FacebookController
     }
 
     return $images;
+
+  }
+
+  public function getNrLikes($accessToken, $photo_id)
+  {
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'https://graph.facebook.com/v13.0/'.$photo_id.'/?fields=reactions.summary(total_count)',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'GET',
+      CURLOPT_HTTPHEADER => array(
+        'Authorization: Bearer '.$accessToken
+      ),
+    ));
+
+    $response = json_decode(curl_exec($curl), true);
+
+    curl_close($curl);
+    return $response["reactions"]["summary"]["total_count"];
 
   }
 
