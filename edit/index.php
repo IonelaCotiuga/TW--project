@@ -122,7 +122,7 @@
 
     <canvas id="canvas" style="display: none;"></canvas>
     <button class="save-button" onclick="saveImage()"><i class="fa-solid fa-desktop fa-fw"></i> Save Image</button>
-    <button id="fb" class="save-button" onclick="postImage('facebook')"><i class="fa-brands fa-facebook-f fa-fw"></i> Post to Facebook</button>
+    <button id="fb" class="save-button" onclick="postOnFacebook()"><i class="fa-brands fa-facebook-f fa-fw"></i> Post to Facebook</button>
     <button id="im" class="save-button" onclick="postImage('imgur')"><i class="fa-solid fa-camera"></i> Post to Imgur</button>
 
     <p id="text"></p>

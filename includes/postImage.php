@@ -12,6 +12,17 @@ if(!empty($image) && $platform == "facebook")
 {
   $facebook = new FacebookController();
 
+  
+  if(!isset($_COOKIE["facebook"]))
+  {
+    http_response_code(403);
+    exit();
+  }
+
+  // $facebook = new FacebookController();
+  // echo $facebook->uploadImage($url, $_COOKIE["facebook"]);
+
+
   http_response_code(200);
 }
 else if(!empty($image) && $platform == "imgur")

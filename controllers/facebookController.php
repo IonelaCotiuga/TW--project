@@ -7,6 +7,7 @@ class FacebookController
   private static $appSecret = FACEBOOK_APP_SECRET;
   private static $apiUrl = "https://www.facebook.com/v14.0/dialog/oauth";
   private static $graphApiUrl = "https://graph.facebook.com/";
+  private static $pageId = FACEBOOK_PAGE_ID;
 
   public function getAuthUrl()
   {
@@ -135,6 +136,32 @@ class FacebookController
 
     curl_close($curl);
     return $response["reactions"]["summary"]["total_count"];
+
+  }
+
+  public function uploadImage($photoUrl, $accessToken)
+  {
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'https://graph.facebook.com/'.$photo_id.'/photos?url='.$photoUrl,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_HTTPHEADER => array(
+        'Authorization: Bearer '.$accessToken
+      ),
+    ));
+
+    $response = json_decode(curl_exec($curl), true);
+
+    curl_close($curl);
+
+    return $respone["post_id"];
 
   }
 
