@@ -40,9 +40,8 @@
           </p>
             <p>Or send us an email:
               <ul>
-                  <li>contactUs@gmail.com</li>
-                  <li>contactUs@gmail.com</li>
-                  <li>contactUs@gmail.com</li>
+                  <li>proiecttw9@gmail.com</li>
+                  
               </ul>
           </p>
 

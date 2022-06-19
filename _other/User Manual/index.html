@@ -30,16 +30,17 @@
 
           <dt><a href="#features">2. Funcționalități</a></dt>
           <dd><a href="#feature1">2.1 Crearea unui cont</a></dd>
-          <dd><a href="#feature2">2.2 Logarea într-un cont existent</a></dd>
-          <dd><a href="#feature3">2.3 Importarea fotografiilor de pe conturile de Facebook, Imgur, Instagram sau Unsplash ale utilizatorului</a></dd>
-          <dd><a href="#feature4">2.4 Căutarea și filtrarea fotografiilor în funcție de cuvintele cheie prezente în descrierea acestora, sau de numărul de aprecieri</a></dd>
-          <dd><a href="#feature5">2.5 Uploadarea de noi fotografii aflate pe device-ul utilizatorului</a></dd>
-          <dd><a href="#feature6">2.6 Editarea unei imagini prin aplicarea de filtre</dd>
-          <dd><a href="#feature7">2.7 Decuparea unei imagini</dd>
-          <dd><a href="#feature8">2.8 Crearea de colaje cu imaginile decupate</dd>
-          <dd><a href="#feature9">2.9 Descărcarea noii imagini, cu modificările alese aplicate pe aceasta</a></dd>
-          <dd><a href="#feature10">2.10 Postarea unei noi imagini pe Imgur</a></dd>
-          <dd><a href="#feature11">2.11 Deconectarea de la un cont</a></dd>
+          <dd><a href="#feature2">2.2 Recuperarea parolei</a></dd>
+          <dd><a href="#feature3">2.3 Logarea într-un cont existent</a></dd>
+          <dd><a href="#feature4">2.4 Importarea fotografiilor de pe conturile de Facebook, Imgur, Instagram sau Unsplash ale utilizatorului</a></dd>
+          <dd><a href="#feature5">2.5 Căutarea și filtrarea fotografiilor în funcție de cuvintele cheie prezente în descrierea acestora, sau de numărul de aprecieri</a></dd>
+          <dd><a href="#feature6">2.6 Uploadarea de noi fotografii aflate pe device-ul utilizatorului</a></dd>
+          <dd><a href="#feature7">2.7 Editarea unei imagini prin aplicarea de filtre</dd>
+          <dd><a href="#feature8">2.8 Decuparea unei imagini</dd>
+          <dd><a href="#feature9">2.9 Crearea de colaje cu imaginile decupate</dd>
+          <dd><a href="#feature10">2.10 Descărcarea noii imagini, cu modificările alese aplicate pe aceasta</a></dd>
+          <dd><a href="#feature11">2.11 Postarea unei noi imagini pe Imgur</a></dd>
+          <dd><a href="#feature12">2.12 Deconectarea de la un cont</a></dd>
 
           <dt><a href="#faq">3. Întrebări frecvente</a></dt>
           <dd><a href="#question1">3.1 Întrebare</a></dd>
@@ -85,17 +86,36 @@
           </section>
 
           <section>
-            <h3 id="feature2">2.2 Logarea într-un cont existent</h3>
+            <h3 id="feature1">2.2 Recuperarea parolei</h3>
             <section>
-              <h4 id="feature2-description">2.2.1 Descriere</h4>
+              <h4 id="feature1-description">2.2.1 Descriere</h4>
+              <p>Permite unui utilizator să își schimbe parola pentru a putea accesa un cont deja existent.</p>
+            </section>
+            <section>
+              <h4 id="feature1-stimulus">2.2.2 Secvențe de stimul/răspuns</h4>
+              <p>Pagina din care se poate solicita un mail de resetare a parolei se accesează din pagina de login, facând click pe textul "Forget your password?". Este necesară introducerea e-mail-ului folosit la crearea contului pentru a putea primi un link spre pagina în care utilizatorul își poate introduce noua parola.</p>
+            </section>
+            <section>
+              <h4 id="feature1-requirements">2.2.3 Cerințe funcționale</h4>
+              <ul>
+                <li>Pentru a putea reseta parola, trebuie sa existe un cont cu un email asociat;</li>
+                <li>Trebuiesc completate atat câmpul <code>"Enter a new password..."</code> cât și <code>"Repeat new password... "</code>;</li>
+                <li>Cele două câmpuri trebuie să trebuie să fie identice, altfel se va returna o eroare <code>unmatched_passwords</code>;</li>
+              </ul>
+            </section>
+
+          <section>
+            <h3 id="feature2">2.3 Logarea într-un cont existent</h3>
+            <section>
+              <h4 id="feature2-description">2.3.1 Descriere</h4>
               <p>Permite utilizatorului să se autentifice într-un cont existent, după care obține acces la funcționalitățile principale ale aplicației.</p>
             </section>
             <section>
-              <h4 id="feature2-stimulus">2.2.2 Secvențe de stimul/răspuns</h4>
+              <h4 id="feature2-stimulus">2.3.2 Secvențe de stimul/răspuns</h4>
               <p>Pagina de autentificare se accesează făcând click pe textul “Log In” din antet. După autentificare, această pagină, precum și linkul către ea, vor deveni indisponibile până când utilizatorul se deconectează.</p>
             </section>
             <section>
-              <h4 id="feature2-requirements">2.2.3 Cerințe funcționale</h4>
+              <h4 id="feature2-requirements">2.3.3 Cerințe funcționale</h4>
               <ul>
                 <li>Toate câmpurile trebuie completate - în cazul în care cel puțin unul este lăsat gol, se va returna o eroare <code>empty_imput</code>;</li>
                 <li>Numele de utilizator sau adresa de e-mail introduse trebuie să se afle în baza de date (acestea <i>nu</i> sunt case sensitive, e.g. dacă numele de utilizator este johndoe, autentificarea cu JohnDoe sau JOHNDOE este posibilă), altfel se va returna o eroare <code>wrong_user</code>;</li>
@@ -106,17 +126,17 @@
           </section>
 
           <section>
-            <h3 id="feature3">2.3 Importarea fotografiilor de pe conturile de Facebook, Imgur, Instagram sau Unsplash ale utilizatorului</h3>
+            <h3 id="feature3">2.4 Importarea fotografiilor de pe conturile de Facebook, Imgur, Instagram sau Unsplash ale utilizatorului</h3>
             <section>
-              <h4 id="feature3-description">2.3.1 Descriere</h4>
+              <h4 id="feature3-description">2.4.1 Descriere</h4>
               <p>Permite utilizatorului să își importe fotografiile postate pe aceste rețele de socializare în aplicație, după care devine posibilă vizualizarea, filtrarea și editarea acestora.</p>
             </section>
             <section>
-              <h4 id="feature3-stimulus">2.3.2 Secvențe de stimul/răspuns</h4>
+              <h4 id="feature3-stimulus">2.4.2 Secvențe de stimul/răspuns</h4>
               <p>Pe pagina de profil, utilizatorul selectează unul dintre butoanele <i>Facebook</i>, <i>Imgur</i>, <i>Instagram</i> sau <i>Unsplash</i>, după care apasă pe butonul “Import Photos”. După ce utilizatorul a autorizat aplicația să îi preia datele, pozele, împreună cu date relevante despre acestea (like-uri, link către pagina de editat, etc.), vor apărea automat în locul butonului “Import Photos”.</p>
             </section>
             <section>
-              <h4 id="feature3-requirements">2.3.3 Cerințe funcționale</h4>
+              <h4 id="feature3-requirements">2.4.3 Cerințe funcționale</h4>
               <ul>
                 <li>Utilizatorul trebuie să fie autentificat într-un cont valid;</li>
                 <li>Utilizatorul nu trebuie să fi autorizat deja aplicația să aibă acces la datele din contul de Facebook, Imgur, Instagram sau Unsplash.</li>
@@ -125,17 +145,17 @@
           </section>
 
           <section>
-            <h3 id="feature4">2.4 Căutarea și filtrarea fotografiilor în funcție de cuvintele cheie prezente în descrierea acestora, sau de numărul de aprecieri</h3>
+            <h3 id="feature4">2.5 Căutarea și filtrarea fotografiilor în funcție de cuvintele cheie prezente în descrierea acestora, sau de numărul de aprecieri</h3>
             <section>
-              <h4 id="feature4-description">2.4.1 Descriere</h4>
-              <p>Permite utilizatorului să se autentifice să filtreze pozele importate în funcție de descrierile și numărul de aprecieri ale acestora. Spre exemplu, dacă un utilizator ar scrie “summer” în câmpul de căutare, s-ar afișa doar acele fotografii care conțin cuvântul “summer” în descrierea lor. Dacă astfel de fotografii nu există, nu se va afișa nimic.</p>
+              <h4 id="feature4-description">2.5.1 Descriere</h4>
+              <p>Permite utilizatorului autentificat să filtreze pozele importate în funcție de descrierile și numărul de aprecieri ale acestora. Spre exemplu, dacă un utilizator ar scrie “summer” în câmpul de căutare, s-ar afișa doar acele fotografii care conțin cuvântul “summer” în descrierea lor. Dacă astfel de fotografii nu există, nu se va afișa nimic.</p>
             </section>
             <section>
-              <h4 id="feature4-stimulus">2.4.2 Secvențe de stimul/răspuns</h4>
+              <h4 id="feature4-stimulus">2.5.2 Secvențe de stimul/răspuns</h4>
               <p>Pe pagina de profil, utilizatorul introduce cuvintele cheie dorite în câmpul de căutare, iar filtrarea se va face automat.</p>
             </section>
             <section>
-              <h4 id="feature4-requirements">2.4.3 Cerințe funcționale</h4>
+              <h4 id="feature4-requirements">2.5.3 Cerințe funcționale</h4>
               <ul>
                 <li>Utilizatorul trebuie să fie autentificat într-un cont valid;</li>
                 <li>Utilizatorul trebuie să fi importat deja pozele dorite pentru a le putea filtra.</li>
@@ -144,97 +164,97 @@
           </section>
 
           <section>
-            <h3 id="feature5">2.5 Uploadarea de noi fotografii aflate pe device-ul utilizatorului</h3>
+            <h3 id="feature5">2.6 Uploadarea de noi fotografii aflate pe device-ul utilizatorului</h3>
             <section>
-              <h4 id="feature5-description">2.5.1 Descriere</h4>
+              <h4 id="feature5-description">2.6.1 Descriere</h4>
               <p>Permite utilizatorului să încarce imagini pe care nu le are pe nici o platformă de socializare direct în aplicație, pentru a le edita, salva și/sau posta pe o rețea de socializare.</p>
             </section>
             <section>
-              <h4 id="feature5-stimulus">2.5.2 Secvențe de stimul/răspuns</h4>
+              <h4 id="feature5-stimulus">2.6.2 Secvențe de stimul/răspuns</h4>
               <p>Pe pagina de profil, utilizatorul selectează butonul “Add Photo” și își alege fotografia dorită, după care poate alege dacă vrea să continue spre pagina de editare, sau pagina de decupare.</p>
             </section>
             <section>
-              <h4 id="feature5-requirements">2.5.3 Cerințe funcționale</h4>
+              <h4 id="feature5-requirements">2.6.3 Cerințe funcționale</h4>
               <p>Utilizatorul trebuie să fie autentificat într-un cont valid.</p>
             </section>
           </section>
 
           <section>
-            <h3 id="feature6">2.6 Editarea unei imagini prin aplicarea de filtre</h3>
+            <h3 id="feature6">2.7 Editarea unei imagini prin aplicarea de filtre</h3>
             <section>
-              <h4 id="feature6-description">2.6.1 Descriere</h4>
+              <h4 id="feature6-description">2.7.1 Descriere</h4>
               <p>Permite utilizatorului să aplice diverse filtre asupra unei fotografii alese pentru a-i modifica aparența.</p>
             </section>
             <section>
-              <h4 id="feature6-stimulus">2.6.2 Secvențe de stimul/răspuns</h4>
+              <h4 id="feature6-stimulus">2.7.2 Secvențe de stimul/răspuns</h4>
               <p>Pe pagina de profil, utilizatorul apasă iconița reprezentată de un creion găsit în partea de dreapta-jos a fotografiei dorite, și este redirectat către editorul de poze. Alternativ, utilizatorul poate încărca o nouă fotografie direct de pe dispozitivul său pentru editat, cum este menționat <a href="#feature5">mai sus</a>.</p>
             </section>
             <section>
-              <h4 id="feature6-requirements">2.6.3 Cerințe funcționale</h4>
+              <h4 id="feature6-requirements">2.7.3 Cerințe funcționale</h4>
               <p>Utilizatorul trebuie să fie autentificat într-un cont valid.</p>
             </section>
           </section>
 
           <section>
-            <h3 id="feature7">2.7 Decuparea unei imagini</h3>
+            <h3 id="feature7">2.8 Decuparea unei imagini</h3>
             <section>
-              <h4 id="feature7-description">2.7.1 Descriere</h4>
+              <h4 id="feature7-description">2.8.1 Descriere</h4>
               <p>Permite utilizatorului să decupeze o fotografie aleasă, făcând click pe imagine, definind o zonă care reprezintă rezultatul final.</p>
             </section>
             <section>
-              <h4 id="feature7-stimulus">2.7.2 Secvențe de stimul/răspuns</h4>
-              <p>Pe pagina de profil, utilizatorul apasă butonul iconița reprezentată de un crop găsit în partea de dreapta-jos a fotografiei dorite, și este redirectat către pagina de decupat imagini. Alternativ, utilizatorul poate încărca o nouă fotografie direct de pe dispozitivul său pentru editat, cum este menționat <a href="#feature5">mai sus</a>.</p>
+              <h4 id="feature7-stimulus">2.8.2 Secvențe de stimul/răspuns</h4>
+              <p>Pe pagina de profil, utilizatorul apasă butonul iconiță reprezentată de un crop găsit în partea de dreapta-jos a fotografiei dorite, și este redirectat către pagina de decupat imagini. Alternativ, utilizatorul poate încărca o nouă fotografie direct de pe dispozitivul său pentru editat, cum este menționat <a href="#feature5">mai sus</a>.</p>
             </section>
             <section>
-              <h4 id="feature7-requirements">2.7.3 Cerințe funcționale</h4>
+              <h4 id="feature7-requirements">2.8.3 Cerințe funcționale</h4>
               <p>Utilizatorul trebuie să fie autentificat într-un cont valid.</p>
             </section>
           </section>
 
           <section>
-            <h3 id="feature8">2.8 Crearea de colaje cu imaginile decupate</h3>
+            <h3 id="feature8">2.9 Crearea de colaje cu imaginile decupate</h3>
             <section>
-              <h4 id="feature8-description">2.8.1 Descriere</h4>
+              <h4 id="feature8-description">2.9.1 Descriere</h4>
               <p>Permite utilizatorului să creeze colaje, formate din orice imagine pe care o decupase și salvase.</p>
             </section>
             <section>
-              <h4 id="feature8-stimulus">2.8.2 Secvențe de stimul/răspuns</h4>
+              <h4 id="feature8-stimulus">2.9.2 Secvențe de stimul/răspuns</h4>
               <p>Pe pagina de profil, utilizatorul apasă butonul “Make Collage”, și este redirectat către pagina de creat colaje.</p>
             </section>
             <section>
-              <h4 id="feature8-requirements">2.8.3 Cerințe funcționale</h4>
+              <h4 id="feature8-requirements">2.9.3 Cerințe funcționale</h4>
               <p>Utilizatorul trebuie să fie autentificat într-un cont valid.</p>
             </section>
           </section>
 
           <section>
-            <h3 id="feature9">2.9 Descărcarea noii imagini, cu filtrele alese aplicate pe aceasta</h3>
+            <h3 id="feature9">2.10 Descărcarea noii imagini, cu filtrele alese aplicate pe aceasta</h3>
             <section>
-              <h4 id="feature9-description">2.9.1 Descriere</h4>
+              <h4 id="feature9-description">2.10.1 Descriere</h4>
               <p>Permite utilizatorului să descarce pe dispozitivul său imaginea pe care o editase, cu toate modificările aplicate.</p>
             </section>
             <section>
-              <h4 id="feature9-stimulus">2.9.2 Secvențe de stimul/răspuns</h4>
+              <h4 id="feature9-stimulus">2.10.2 Secvențe de stimul/răspuns</h4>
               <p>Pe pagina de editare a fotografiilor, după aplicarea filtrelor dorite, utilizatorul apasă butonul “Save Image” și confirmă faptul că vrea să descarce imaginea.</p>
             </section>
             <section>
-              <h4 id="feature9-requirements">2.9.3 Cerințe funcționale</h4>
+              <h4 id="feature9-requirements">2.10.3 Cerințe funcționale</h4>
               <p>Utilizatorul trebuie să fie autentificat într-un cont valid.</p>
             </section>
           </section>
 
           <section>
-            <h3 id="feature10">2.10 Postarea unei noi imagini pe Imgur</h3>
+            <h3 id="feature10">2.11 Postarea unei noi imagini pe Imgur</h3>
             <section>
-              <h4 id="feature10-description">2.10.1 Descriere</h4>
+              <h4 id="feature10-description">2.11.1 Descriere</h4>
               <p>Permite utilizatorului să posteze pe contul de Imgur imaginea pe care o editase, cu toate modificările aplicate.</p>
             </section>
             <section>
-              <h4 id="feature10-stimulus">2.10.2 Secvențe de stimul/răspuns</h4>
+              <h4 id="feature10-stimulus">2.11.2 Secvențe de stimul/răspuns</h4>
               <p>Pe pagina de editare a fotografiilor, după aplicarea filtrelor dorite, utilizatorul apasă butonul “Post to Imgur” și confirmă faptul că autorizează postarea.</p>
             </section>
             <section>
-              <h4 id="feature10-requirements">2.10.3 Cerințe funcționale</h4>
+              <h4 id="feature10-requirements">2.11.3 Cerințe funcționale</h4>
               <ul>
                 <li>Utilizatorul trebuie să fie autentificat într-un cont valid;</li>
                 <li>Utilizatorul trebuie să fi autorizat deja aplicația să aibă acces la datele din contul de Imgur.</li>
@@ -243,17 +263,17 @@
           </section>
 
           <section>
-            <h3 id="feature11">2.11 Deconectarea de la un cont</h3>
+            <h3 id="feature11">2.12 Deconectarea de la un cont</h3>
             <section>
-              <h4 id="feature11-description">2.11.1 Descriere</h4>
+              <h4 id="feature11-description">2.12.1 Descriere</h4>
               <p>Permite utilizatorului să se deconecteze de la contul cu care este autentificat în acel moment.</p>
             </section>
             <section>
-              <h4 id="feature11-stimulus">2.11.2 Secvențe de stimul/răspuns</h4>
+              <h4 id="feature11-stimulus">2.12.2 Secvențe de stimul/răspuns</h4>
               <p>Deconectarea se efectuează făcând click pe butonul “Log Out” din pagina de profil. După aceasta, utilizatorul este redirectat către pagina principală.</p>
             </section>
             <section>
-              <h4 id="feature11-requirements">2.11.3 Cerințe funcționale</h4>
+              <h4 id="feature11-requirements">2.12.3 Cerințe funcționale</h4>
               <p>Utilizatorul trebuie să fie autentificat într-un cont valid.</p>
             </section>
           </section>
