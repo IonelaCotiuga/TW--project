@@ -1,4 +1,12 @@
 # M-PIC
+The website is online at the following address: <a href="https://mpic-app.herokuapp.com/">https://mpic-app.herokuapp.com/</a>
+
+Alternatively, if you wish to run the website locally, you can follow these steps:
+1. Rename the `src` folder to `MPic`
+2. Move it into your `xampp/htdocs` directory
+3. Create a MySQL database named `mpic_users`, and run the commands found in the `util/create_database.php` file
+4. Access the website at `https://localhost/MPic`
+
 ## API Documentation
 This API allows users to register new accounts, get new JWT tokens, and view the images they've edited or created using the M-Pic app.
 

@@ -1,3 +1,3 @@
-**/temp
-!index.php
+temp/*
+!temp/index.php
 util/env.php
