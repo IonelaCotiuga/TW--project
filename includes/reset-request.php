@@ -50,14 +50,14 @@ if(isset($_POST["reset-request-submit"])){
       $mail->isSMTP();
       $mail->Host = 'smtp.gmail.com';
       $mail->SMTPAuth = true;
-      $mail->Username = 'proiecttw9@gmail.com';
-      $mail->Password = 'vtremeyfhfgeboph';
+      $mail->Username = 'proiectmpic@gmail.com';
+      $mail->Password = 'quopbhajldvhjxdk';
       $mail->SMTPSecure = 'tls';
       $mail->Port = 587;
       // $mail->SMTPAutoTLS = true;
 
       //Recipients
-      $mail->setFrom('proiecttw9@gmail.com', 'MPic');
+      $mail->setFrom('proiectmpic@gmail.com', 'MPic');
       $mail->addAddress($userEmail);
       // $mail->addReplayTo('no-reply@gmail.com', 'No reply');
 
