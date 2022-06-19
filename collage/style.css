@@ -82,8 +82,14 @@ body {
   font-size: 20px;
 }
 
-#fb {
-  background-color: #4267B2;
+#im {
+  background-color: #21bd79;
+}
+
+#text {
+  display: none;
+  margin: 20px 0;
+  text-align: center;
 }
 
 #scrollable::-webkit-scrollbar {

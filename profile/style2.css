@@ -116,6 +116,14 @@ a {
   margin-top: 10px;
 }
 
+.upload-buttons {
+  background-color: rgb(88, 154, 176);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+}
+
 .close {
   color: #aaa;
   float: right;

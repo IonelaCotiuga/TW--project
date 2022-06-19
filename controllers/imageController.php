@@ -78,7 +78,7 @@ class ImageController
     require_once("../util/config.php");
 
     $path = "../temp/" . $id . "/images/";
-    $fullPath = $baseUrl . substr($path, 2, strlen($path)-2);
+    $fullPath = $baseUrl . substr($path, 3, strlen($path)-3);
 
     $result = array();
     if(file_exists($path))

@@ -44,9 +44,9 @@
                 <img class="border_round" id="profile-picture" src="<?php echo $imgurl; ?>" alt="profile picture">
                 <p class="info"><?php echo $jwt["username"]; ?></p>
                 <p class="info"><?php echo $jwt["email"]; ?></p>
-                <button id="upload-button" class="button button1">Add photo</button>
+                <button id="upload-button" class="button button1">Add Photo</button>
 
-                <button class="button button2" onclick="logout()">Logout</button>
+                <button class="button button2" onclick="logout()">Log Out</button>
             </div>
 
             <div class="split right">
@@ -149,7 +149,7 @@
 
             <div id="modal-wrapper">
               <input type="file" id="image-input" accept="image/jpg, image/png" style="display: none;"/>
-              <input type="button" value="Choose File" onclick="document.getElementById('image-input').click();" />
+              <input type="button" class="upload-buttons" value="Choose File" onclick="document.getElementById('image-input').click();" />
 
               <p id="loading-text">Uploading, please wait a moment...</p>
 
@@ -157,8 +157,8 @@
                 <img src="#" id="chosen-image" alt="The chosen image."/>
 
                 <div>
-                  <button class="modal-button" onclick="redirect('edit')">Edit</button>
-                  <button class="modal-button" onclick="redirect('crop')">Crop</button>
+                  <button class="modal-button upload-buttons" onclick="redirect('edit')">Edit</button>
+                  <button class="modal-button upload-buttons" onclick="redirect('crop')">Crop</button>
                 </div>
               </div>
             </div>

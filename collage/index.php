@@ -58,8 +58,9 @@
       </div>
     </div>
 
+    <p id="text"></p>
     <button class="save-button" onclick="saveImage()"><i class="fa-solid fa-desktop fa-fw"></i> Save Image</button>
-    <button id="fb" class="save-button"><i class="fa-brands fa-facebook-f fa-fw"></i> Post to Facebook</button>
+    <button id="im" class="save-button" onclick="postImage()"><i class="fa-solid fa-camera"></i> Post to Imgur</button>
 
     <!-- script -->
     <script src="script.js"></script>

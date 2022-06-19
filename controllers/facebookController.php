@@ -5,180 +5,106 @@ class FacebookController
 {
   private static $appId = FACEBOOK_APP_ID;
   private static $appSecret = FACEBOOK_APP_SECRET;
-  private static $apiUrl = "https://www.facebook.com/v14.0/dialog/oauth";
-  private static $graphApiUrl = "https://graph.facebook.com/";
-  private static $pageId = FACEBOOK_PAGE_ID;
+  private static $apiUrl = "https://graph.facebook.com/v14.0/";
+  private static $redirectUrl = "https://localhost/MPic/includes/facebook.php";
 
   public function getAuthUrl()
   {
     $params = array(
       "client_id" => self::$appId,
-      "redirect_uri" => "https://localhost/MPic/includes/facebook.php",
-      "scope" => "user_photos, user_likes,user_posts ",
+      "redirect_uri" => self::$redirectUrl,
+      "scope" => "user_photos,user_likes,user_posts",
       "state" => "state-param",
       "auth_type" => "rerequest",
       "response_type" => "code"
     );
-    $url = self::$apiUrl . "?" . http_build_query($params);
+    $url = "https://www.facebook.com/v14.0/dialog/oauth?" . http_build_query($params);
 
     return $url;
   }
 
   public function getAccessToken($code)
   {
-    $url = "https://graph.facebook.com/v14.0/oauth/access_token?";
+    $url = self::$apiUrl . "oauth/access_token?";
     $params = array(
       "client_id" => self::$appId,
       "client_secret" => self::$appSecret,
-      "redirect_uri" => "https://localhost/MPic/includes/facebook.php",
+      "redirect_uri" => self::$redirectUrl,
       "code" => $code
     );
-    $url = $url . http_build_query($params);
+    $url .= http_build_query($params);
 
     $response = $this->makeRequest("GET", $url, array());
 
     return $response["access_token"];
   }
 
-
   public function getUserId($accessToken)
   {
+    $url = self::$apiUrl . "me";
+    $headers = array(
+      "Authorization: Bearer " . $accessToken
+    );
 
-    $curl = curl_init();
+    $response = $this->makeRequest("GET", $url, $headers);
 
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => 'https://graph.facebook.com/v14.0/me',
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_ENCODING => '',
-      CURLOPT_MAXREDIRS => 10,
-      CURLOPT_TIMEOUT => 0,
-      CURLOPT_FOLLOWLOCATION => true,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => 'GET',
-      CURLOPT_HTTPHEADER => array(
-        'Authorization: Bearer '.$accessToken
-      ),
-    ));
-
-    $response = json_decode(curl_exec($curl), true);
-
-    curl_close($curl);
     return $response["id"];
-
   }
 
   public function getPhotos($accessToken)
   {
+    $url = self::$apiUrl . $this->getUserId($accessToken) . "/feed?fields=full_picture,message";
+    $headers = array(
+      "Authorization: Bearer " . $accessToken
+    );
+
+    $response = $this->makeRequest("GET", $url, $headers);
+    $response = $response["data"];
     $images = array();
 
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => 'https://graph.facebook.com/v14.0/'.$this->getUserId($accessToken).'/feed?fields=full_picture,message',
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_ENCODING => '',
-      CURLOPT_MAXREDIRS => 10,
-      CURLOPT_TIMEOUT => 0,
-      CURLOPT_FOLLOWLOCATION => true,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => 'GET',
-      CURLOPT_HTTPHEADER => array(
-        'Authorization: Bearer '.$accessToken
-      ),
-    ));
-
-    $value = json_decode(curl_exec($curl),true);
-
-    curl_close($curl);
-
-    $value = $value['data'];
-
-
-    for($i = 0; $i < count($value); $i+=1){
-      if(!isset($value[$i]["full_picture"]))
+    for($i = 0; $i < count($response); $i += 1)
+    {
+      if(!isset($response[$i]["full_picture"]))
         continue;
 
-      $photo_id =  $value[$i]["id"];
-      $likes = $this->getNrLikes($accessToken, $photo_id);
+      $photoId =  $response[$i]["id"];
+      $likes = $this->getNrLikes($accessToken, $photoId);
 
       $data = array(
-        "source" => $value[$i]["full_picture"],
+        "source" => $response[$i]["full_picture"],
         "likes" => $likes,
-        "description" => isset($value[$i]["message"]) ? $value[$i]["message"] : "<i>No description</i>"
+        "description" => isset($response[$i]["message"]) ? $response[$i]["message"] : "<i>No description</i>"
       );
 
       array_push($images, $data);
-
     }
 
     return $images;
-
   }
 
-  public function getNrLikes($accessToken, $photo_id)
+  public function getNrLikes($accessToken, $photoId)
   {
-    $curl = curl_init();
+    $url = self::$apiUrl . $photoId . "?fields=reactions.summary(total_count)";
+    $headers = array(
+      "Authorization: Bearer " . $accessToken
+    );
 
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => 'https://graph.facebook.com/v13.0/'.$photo_id.'/?fields=reactions.summary(total_count)',
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_ENCODING => '',
-      CURLOPT_MAXREDIRS => 10,
-      CURLOPT_TIMEOUT => 0,
-      CURLOPT_FOLLOWLOCATION => true,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => 'GET',
-      CURLOPT_HTTPHEADER => array(
-        'Authorization: Bearer '.$accessToken
-      ),
-    ));
+    $response = $this->makeRequest("GET", $url, $headers);
 
-    $response = json_decode(curl_exec($curl), true);
-
-    curl_close($curl);
     return $response["reactions"]["summary"]["total_count"];
-
   }
 
-  public function uploadImage($photoUrl, $accessToken)
-  {
-    $curl = curl_init();
-
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => 'https://graph.facebook.com/'.$photo_id.'/photos?url='.$photoUrl,
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_ENCODING => '',
-      CURLOPT_MAXREDIRS => 10,
-      CURLOPT_TIMEOUT => 0,
-      CURLOPT_FOLLOWLOCATION => true,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => 'POST',
-      CURLOPT_HTTPHEADER => array(
-        'Authorization: Bearer '.$accessToken
-      ),
-    ));
-
-    $response = json_decode(curl_exec($curl), true);
-
-    curl_close($curl);
-
-    return $respone["post_id"];
-
-  }
-
-  public function makeRequest($method, $url, $params)
+  public function makeRequest($method, $url, $headers)
   {
     $ch = curl_init();
 
-    if($method == "POST")
-    {
-      curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
-      curl_setopt($ch, CURLOPT_POST, true);
-    }
-
     curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    if($method == "POST")
+      curl_setopt($ch, CURLOPT_POST, true);
 
     $response = curl_exec($ch);
     curl_close($ch);

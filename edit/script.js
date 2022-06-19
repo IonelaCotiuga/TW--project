@@ -95,7 +95,7 @@ function saveImage()
   saveToServer(downloadLink.href);
 }
 
-function postImage(platform)
+function postImage()
 {
   paintCanvas();
 
@@ -104,19 +104,26 @@ function postImage(platform)
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "../includes/postImage.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("image=" + encodeURIComponent(image) + "&platform=" + platform);
+  xmlhttp.send("image=" + encodeURIComponent(image));
 
-  document.getElementById("text").style.display = "block";
-  document.getElementById("text").innerHTML = "Uploading image...";
+  let text = document.getElementById("text");
+  text.style.display = "block";
+  text.style.color = "black";
+  text.innerHTML = "Uploading image...";
 
   xmlhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200)
     {
-       document.getElementById("text").innerHTML = "Successfully uploaded image.";
+      text.style.color = "green";
+      text.innerHTML = "Successfully uploaded image.";
+      saveToServer(image);
+    }
+    else if(this.readyState == 4 && this.status == 403)
+    {
+      text.style.color = "red";
+      text.innerHTML = "You must first authenticate in order to post an image.";
     }
   };
-
-  saveToServer(image);
 }
 
 function saveToServer(url)
@@ -125,49 +132,4 @@ function saveToServer(url)
   xmlhttp.open("POST", "../includes/saveImage.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send("image=" + encodeURIComponent(url) + "&type=image");
-}
-
-
-function postOnFacebook(){
-  
-  authToken =  "EAAQY7V7pT8cBAFZBxhjj66HwTceUAG0tR80ujPtUmQqDOERs3Ew3yfZAG1ZB0A9sNHUZAAipptZBvW3btkfq85xNtebNV9xC5ARsLBUzt4U9AZAsyfUbGWCoNPEuM6W0t9jkn9WjV0fLd375QiWjRsgGqNucrqqokftkiyY2bpfZBoZA1AXHXZCuXJscbr5QWj17F1ZARAZAodz1wZDZD";
-  var imageData  = document.getElementById("canvas").toDataURL("image/png");
-  try {
-      blob = dataURItoBlob(imageData);
-  }
-  catch(e) {
-      console.log(e);
-  }
-
-  let xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("POST", "https://graph.facebook.com/105020545586760/photos", true);
-  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.setRequestHeader("Authorization", "Bearer "+authToken);
-  xmlhttp.send("source="+blob);
-
-  document.getElementById("text").style.display = "block";
-  document.getElementById("text").innerHTML = "Uploading image...";
-
-  xmlhttp.onreadystatechange = function() {
-    if(this.readyState == 4 && this.status == 200)
-    {
-      document.getElementById("text").innerHTML = "Successfully uploaded image.";
-    }
-    else {
-      console.log(xmlhttp.responseText);
-    }
-  };
-
-
-}
-
-function dataURItoBlob(dataURI) {
-
-var byteString = atob(dataURI.split(',')[1]);
-var ab = new ArrayBuffer(byteString.length);
-var ia = new Uint8Array(ab);
-for (var i = 0; i < byteString.length; i++) {
-    ia[i] = byteString.charCodeAt(i);
-}
-return new Blob([ab], { type: 'image/png' });
 }

@@ -1,0 +1,25 @@
+{
+  "name": "M-Pic",
+  "version": "1.0.0",
+  "type": "library",
+  "homepage": "https://mpic-app.herokuapp.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Avarvarei Bianca",
+      "role": "Developer"
+    },
+    {
+      "name": "Cotiuga Ionela",
+      "role": "Developer"
+    },
+    {
+      "name": "Hoamea Vanessa",
+      "role": "Developer"
+    }
+  ],
+  "require" : {
+        "php" : ">= 8.1",
+        "phpmailer/phpmailer": "^6.5"
+  }
+}
