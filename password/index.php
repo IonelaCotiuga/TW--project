@@ -25,14 +25,13 @@
         <script src="../script.js"></script>
 
         <p class="LoginWord"> Forgot your password? </p>
-        <!-- <p class="LoginWord"> nasol </p> -->
 
         <div class="containerLogin">
               <form action="../includes/reset-request.php" method="post">
                 <label for="username" >E-mail:</label>
-                <input type="text" id="username" name="email" class="input" placeholder="Enter your e-mail address..">
+                <input type="text" id="username" name="email" class="input">
 
-                <button class="LoginButton" type="submit" name="reset-request-submit">Receive new password by email</button>
+                <button class="LoginButton" type="submit" name="reset-request-submit">Receive reset email</button>
               </form>
 
               <?php

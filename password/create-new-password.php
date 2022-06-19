@@ -25,7 +25,6 @@
         <script src="../script.js"></script>
 
         <p class="LoginWord"> Reset your password </p>
-        <!-- <p class="LoginWord"> nasol </p> -->
 
         <div class="containerLogin">
 
@@ -45,7 +44,7 @@
 
                             <div class="enterpwd">
                                 <input class="enterpwdtxt" type = "password" name="pwd" placeholder="Enter a new password...">
-                                
+
                             </div>
 
                             <div class="enterpwd">
@@ -61,17 +60,6 @@
                 }
             ?>
 
-
-
-
-
         </div>
-
-
-
-
-
     </body>
-
-
 </html>

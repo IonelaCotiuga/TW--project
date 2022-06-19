@@ -51,6 +51,16 @@
           }
         ?>
 
+        <?php
+          if(isset($_GET["newpwd"]))
+          {
+            $newpwd = $_GET["newpwd"];
+            if($newpwd == "passwordupdated") {
+              echo '<div class="passwordText" style="color: blue;"><p>Your password has been reset!</p></div>';
+            }
+          }
+        ?>
+
         <div class="containerLogin">
             <form action="../includes/loginAux.php" method="post">
                 <label for="username" >Username or e-mail:</label>
@@ -61,19 +71,12 @@
 
                 <button class="LoginButton" type="submit" name="submit">Log in</button>
             </form>
-            
 
-            <?php
-              // $newpwd = $_GET("newpwd");
-              // if(isset($newpwd)){
-              //   if ($newpwd == "passwordupdated"){
-              //     echo '<p class = "signupsuccess"> Your password has been reset!</p>';
-              //   }
-              // }
-            ?> 
-            <a href = "../password/index.php" class="passwordText"> Forgot your password? </a>
-            
             <a href="../signup">or create an account</a>
+        </div>
+
+        <div class="passwordText">
+          <a href = "../password/index.php"> Forgot your password? </a>
         </div>
 
     </body>

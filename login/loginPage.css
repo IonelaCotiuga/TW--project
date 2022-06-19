@@ -70,7 +70,6 @@ body {
     margin: auto;
     max-width: 100%;
     width: 30%;
-    margin-bottom: 50px;
 }
 
 .containerLogin p{
@@ -145,6 +144,10 @@ button {
     margin-top: 10px;
 }
 
+.passwordText {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 @media screen and (max-width: 660px) {
     .topnav a:not(:first-child) {display: none;}
