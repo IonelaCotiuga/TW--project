@@ -41,7 +41,7 @@
             <p>Or send us an email:
               <ul>
                   <li>proiecttw9@gmail.com</li>
-                  
+                  <li>proiectmpic@gmail.com</li>
               </ul>
           </p>
 

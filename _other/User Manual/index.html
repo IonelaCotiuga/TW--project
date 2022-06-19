@@ -30,17 +30,17 @@
 
           <dt><a href="#features">2. Funcționalități</a></dt>
           <dd><a href="#feature1">2.1 Crearea unui cont</a></dd>
-          <dd><a href="#feature2">2.2 Recuperarea parolei</a></dd>
-          <dd><a href="#feature3">2.3 Logarea într-un cont existent</a></dd>
-          <dd><a href="#feature4">2.4 Importarea fotografiilor de pe conturile de Facebook, Imgur, Instagram sau Unsplash ale utilizatorului</a></dd>
-          <dd><a href="#feature5">2.5 Căutarea și filtrarea fotografiilor în funcție de cuvintele cheie prezente în descrierea acestora, sau de numărul de aprecieri</a></dd>
-          <dd><a href="#feature6">2.6 Uploadarea de noi fotografii aflate pe device-ul utilizatorului</a></dd>
-          <dd><a href="#feature7">2.7 Editarea unei imagini prin aplicarea de filtre</dd>
-          <dd><a href="#feature8">2.8 Decuparea unei imagini</dd>
-          <dd><a href="#feature9">2.9 Crearea de colaje cu imaginile decupate</dd>
-          <dd><a href="#feature10">2.10 Descărcarea noii imagini, cu modificările alese aplicate pe aceasta</a></dd>
-          <dd><a href="#feature11">2.11 Postarea unei noi imagini pe Imgur</a></dd>
-          <dd><a href="#feature12">2.12 Deconectarea de la un cont</a></dd>
+          <dd><a href="#feature2">2.2 Logarea într-un cont existent</a></dd>
+          <dd><a href="#feature3">2.3 Importarea fotografiilor de pe conturile de Facebook, Imgur, Instagram sau Unsplash ale utilizatorului</a></dd>
+          <dd><a href="#feature4">2.4 Căutarea și filtrarea fotografiilor în funcție de cuvintele cheie prezente în descrierea acestora, sau de numărul de aprecieri</a></dd>
+          <dd><a href="#feature5">2.5 Uploadarea de noi fotografii aflate pe device-ul utilizatorului</a></dd>
+          <dd><a href="#feature6">2.6 Editarea unei imagini prin aplicarea de filtre</dd>
+          <dd><a href="#feature7">2.7 Decuparea unei imagini</dd>
+          <dd><a href="#feature8">2.8 Crearea de colaje cu imaginile decupate</dd>
+          <dd><a href="#feature9">2.9 Descărcarea noii imagini, cu modificările alese aplicate pe aceasta</a></dd>
+          <dd><a href="#feature10">2.10 Postarea unei noi imagini pe Imgur</a></dd>
+          <dd><a href="#feature11">2.11 Deconectarea de la un cont</a></dd>
+          <dd><a href="#feature12">2.12 Recuperarea parolei</a></dd>
 
           <dt><a href="#faq">3. Întrebări frecvente</a></dt>
           <dd><a href="#question1">3.1 Întrebare</a></dd>
@@ -84,25 +84,6 @@
               <li>În cazul în care baza de date întâmpină probleme, se va returna o eroare <code>sql_statement_failed</code>.</li>
             </ul>
           </section>
-
-          <section>
-            <h3 id="feature1">2.2 Recuperarea parolei</h3>
-            <section>
-              <h4 id="feature1-description">2.2.1 Descriere</h4>
-              <p>Permite unui utilizator să își schimbe parola pentru a putea accesa un cont deja existent.</p>
-            </section>
-            <section>
-              <h4 id="feature1-stimulus">2.2.2 Secvențe de stimul/răspuns</h4>
-              <p>Pagina din care se poate solicita un mail de resetare a parolei se accesează din pagina de login, facând click pe textul "Forget your password?". Este necesară introducerea e-mail-ului folosit la crearea contului pentru a putea primi un link spre pagina în care utilizatorul își poate introduce noua parola.</p>
-            </section>
-            <section>
-              <h4 id="feature1-requirements">2.2.3 Cerințe funcționale</h4>
-              <ul>
-                <li>Pentru a putea reseta parola, trebuie sa existe un cont cu un email asociat;</li>
-                <li>Trebuiesc completate atat câmpul <code>"Enter a new password..."</code> cât și <code>"Repeat new password... "</code>;</li>
-                <li>Cele două câmpuri trebuie să trebuie să fie identice, altfel se va returna o eroare <code>unmatched_passwords</code>;</li>
-              </ul>
-            </section>
 
           <section>
             <h3 id="feature2">2.3 Logarea într-un cont existent</h3>
@@ -277,6 +258,26 @@
               <p>Utilizatorul trebuie să fie autentificat într-un cont valid.</p>
             </section>
           </section>
+
+          <section>
+            <h3 id="feature12">2.12 Recuperarea parolei</h3>
+            <section>
+              <h4 id="feature12-description">2.12.1 Descriere</h4>
+              <p>Permite unui utilizator să își schimbe parola pentru a putea accesa un cont deja existent.</p>
+            </section>
+            <section>
+              <h4 id="feature12-stimulus">2.12.2 Secvențe de stimul/răspuns</h4>
+              <p>Pagina din care se poate solicita un mail de resetare a parolei se accesează din pagina de login, facând click pe textul "Forget your password?". Este necesară introducerea e-mail-ului folosit la crearea contului pentru a putea primi un link spre pagina în care utilizatorul își poate introduce noua parola.</p>
+            </section>
+            <section>
+              <h4 id="feature12-requirements">2.12.3 Cerințe funcționale</h4>
+              <ul>
+                <li>Pentru a putea reseta parola, trebuie să existe un cont cu un e-mail asociat;</li>
+                <li>Trebuiesc completate atat câmpul <code>Enter a new password...</code> cât și <code>Repeat new password...</code>;</li>
+                <li>Toate câmpurile trebuie completate - în cazul în care cel puțin unul este lăsat gol, se va returna o eroare <code>empty_input</code>;</li>
+                <li>Cele două câmpuri trebuie să fie identice, altfel se va returna o eroare <code>unmatched_passwords</code>;</li>
+              </ul>
+            </section>
       </section>
 
       <section role="doc-introduction">
