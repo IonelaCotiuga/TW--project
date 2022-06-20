@@ -13,6 +13,7 @@
 
 if(isset($_POST["reset-request-submit"])){
     require_once("../util/config.php");
+    require_once("../util/env.php");
 
     $selector = substr(md5(rand()), 0, 8);
     $token = substr(md5(rand()), 0, 32);
@@ -33,14 +34,14 @@ if(isset($_POST["reset-request-submit"])){
       $mail->isSMTP();
       $mail->Host = 'smtp.gmail.com';
       $mail->SMTPAuth = true;
-      $mail->Username = 'proiectmpic@gmail.com';
-      $mail->Password = 'quopbhajldvhjxdk';
+      $mail->Username = EMAIL_ADDRESS;
+      $mail->Password = EMAIL_PASSWORD;
       $mail->SMTPSecure = 'tls';
       $mail->Port = 587;
       // $mail->SMTPAutoTLS = true;
 
       //Recipients
-      $mail->setFrom('proiectmpic@gmail.com', 'MPic');
+      $mail->setFrom(EMAIL_ADDRESS, 'MPic');
       $mail->addAddress($userEmail);
       // $mail->addReplayTo('no-reply@gmail.com', 'No reply');
 

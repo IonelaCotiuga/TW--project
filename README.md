@@ -1,7 +1,7 @@
 # M-PIC
-The website is online at the following address: <a href="https://mpic-app.herokuapp.com/">https://mpic-app.herokuapp.com/</a>
+The link to the video demo: <a href="https://youtu.be/zYxAERLqYnI">https://youtu.be/zYxAERLqYnI</a>
 
-The link to the video : <a href="https://youtu.be/zYxAERLqYnI">https://youtu.be/zYxAERLqYnI</a>
+The website is online at the following address: <a href="https://mpic-app.herokuapp.com/">https://mpic-app.herokuapp.com/</a>
 
 Alternatively, if you wish to run the website locally, you can follow these steps:
 1. Rename the `src` folder to `MPic`
